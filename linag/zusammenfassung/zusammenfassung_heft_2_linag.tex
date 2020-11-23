@@ -69,6 +69,8 @@
 	\end{itemize}
 \end{lemma}
 
+\subsection{Basis}
+
 \begin{definition}
 	$V$... Vektorraum
 	
@@ -141,6 +143,8 @@
 	$\implies \exists K \subseteq H : K$ ist eine maximale Kette.
 \end{theorem}
 
+\subsection{Basis}
+
 \begin{theorem}
 	$V$... Vektorraum
 	
@@ -153,4 +157,133 @@
 	Sei $M \subset V$ ein Erzeugungssystem $\implies \exists B \subset M : B$ ist Basis
 \end{lemma}
 
+\begin{theorem}
+	Jeder Vektorraum $V$ hat eine Basis $B$.
+	
+	Wenn $A \subseteq V$ linear unabhängig ist $\implies \exists B \supset A$ mit $B$ ist Basis von $V$.
+	
+	Wenn $M \subseteq V$ Erzeugungssystem von $V$, dann $\exists B \supseteq M$ mit $B$ ist Basis.
+\end{theorem}
+
+\begin{lemma}
+	$V$... Vektorraum über $K$, $M \subseteq V$, $m \in V$, $m=\sum_{i=1}^{n}x_i*m_i$ mit $x_1,...,x_n \in K^{\times }$ und $m_1,...,m_n \in M$ verschieden
+	
+	\begin{itemize}
+		\item $M$ Erzeugungssystem $\implies \forall i (M\setminus \{m_i\})\cup \{m\}$ ist Erzeugungssystem
+		\item $M$ linear unabhängig $\implies \forall i (M \setminus \{m_i\})\cup \{m\}$ ist linear unabhängig
+		\item $M$ Basis $\implies \forall i (M \setminus \{m_i\})\cup \{m\}$ ist Basis
+	\end{itemize}
+\end{lemma}
+
+\begin{theorem}[Austauschsatz von Steinitz]
+	Sei $M$ ein Erzeugungssystem von $V$. Sei $A$ eine linear unabhängige Teilmenge von V. Dann gilt:
+	
+	$\exists \phi : A \rightarrow M$ injektiv, sodass $(M\setminus \phi(A))\cup A$ ein Erzeugungssystem ist.
+\end{theorem}
+
+\begin{lemma}
+	$V$... Vektorraum über $K$, $B$, $B'$... Basen von $V$
+	
+	$\implies \exists \phi: B \rightarrow B'$ injektiv $\land \exists \phi':B'\rightarrow B$ injektiv
+	
+	Alle Basen zu einem Vektorraum sind gleich groß:
+	
+	$|B| = |B'|, d.h. \exists \psi: B\rightarrow B'$ bijektiv
+\end{lemma}
+
+\begin{theorem}[Satz von Cantor-Schröder-Bernstein]
+	$C$, $D$... Mengen, $\exists \phi : C\rightarrow D$ injektiv, $\exists \phi' : D \rightarrow C$ injektiv
+	
+	$\implies \exists \psi : C \rightarrow D$ bijektiv
+\end{theorem}
+
+\begin{definition}
+	$dimV\coloneqq$ Größe einer beliebigen Basis von $V$
+\end{definition}
+
+\begin{remark}
+	$dimV=\infty \logeq \neg(dimV endlich)$
+\end{remark}
+
+\begin{lemma}
+	Sei $V$, $V'$... Vektorräume über $K$
+	
+	$dimV=dimV'\logeq V \cong V'$, wobei $\cong$ bedeutet, dass $V$ und $V'$ isomorph sind
+\end{lemma}
+
+\begin{theorem}
+	$V$... Vektorraum über $K$
+	
+	$V \cong K^{<B>}$, wobei $B \supseteq V$ eine beliebige Basis ist.
+\end{theorem}
+
+\begin{definition}
+	$V$... Vektorraum über $K$ heißt endlich erzeugt
+	
+	\begin{itemize}
+		\item $\logeq \exists M \subseteq V : [M]=V$
+		\item $\logeq V$ hat endliches Erzeugungssystem
+		\item $\logeq V$ hat endliche Basis
+		\item $dimV$ ist endlich
+	\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	$V$ endlich erzeugt
+	
+	\begin{itemize}
+		\item $M \subseteq V$ Erzeugungssystem $\implies |M| \geq dimV$
+		\item $M \subseteq V$ linear unabhängig $\implies |M| \leq dimV$
+	\end{itemize}
+
+	Wenn Gleichheit gilt ist $M$ sogar eine Basis.
+\end{lemma}
+
+\begin{lemma}
+	$V$... Vektorraum, $U_1 \subseteq U_2 \subseteq V$, $U_2$... endlich erzeugt
+	
+	\begin{itemize}
+		\item $dimU_1 \leq dimU_2$
+		\item $U_1 \neq U_2 \logeq dimU_1 < dimU_2$
+	\end{itemize}
+\end{lemma}
+
+\subsection{Elementare Spaltenumformungen}
+
+\begin{definition}
+	Es gibt folgende elementare Spaltenumformungen:
+	
+	\begin{itemize}
+		\item Multiplikation einer Spalte mit $c\in K^{\times}$
+		\item Vertauschen zweier beliebiger Spalten
+		\item Addition eines vielfachen einer Spalte zu einer anderen.
+	\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	$(a_1,...,a_m)$ lässt sich durch elementare Spaltenumformungen zu $(a_1',...a_m')$ umformen $\logeq [\{a_1,...,a_m\}]=[\{a_1',...,a_m'\}]$
+\end{lemma}
+
+\begin{definition}
+	$n\geq 1$
+	
+	$Er\coloneqq \begin{pmatrix}
+		1 & 0 & \cdots & 0 \\
+		0 & 1 & \cdots & 0 \\
+		\vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & \cdots & 1
+	\end{pmatrix} \in K^{r\times r}$
+\end{definition}
+
+\begin{lemma}
+	$A \in K^{n\times m}$ beliebig.
+	
+	$\implies \exists r \leq min(n,m)$, sodass $A$ durch elementare Spaltenumformungen zu $\begin{pmatrix}
+		Er & 0 & \cdots & 0\\
+		\vdots & \vdots & & \vdots\\
+		* & 0 & \cdots & 0\\
+	\end{pmatrix}$ umgeformt werden kann (bis auf die Reihenfolge der Zeilen).
+
+	Die entstandene Matrix nennt man auch Normalform.
+\end{lemma}
 \end{document}
