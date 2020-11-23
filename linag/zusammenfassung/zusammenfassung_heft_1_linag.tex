@@ -1,0 +1,328 @@
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Bemerkung}
+\newtheorem*{schreibweise}{Schreibweise}
+
+%opening
+\title{Zusammenfassung Heft 1 LINAG}
+\author{Ida Hönigmann}
+
+\newcommand*{\logeq}{\Leftrightarrow}
+
+\begin{document}
+
+\maketitle
+
+\section{Algebraische Grundlagen}
+\subsection{Gruppen}
+\begin{definition}
+	$X$...Menge, $*:X^{2}\rightarrow X$
+	
+	Sei $e \in X$.
+	\begin{enumerate}
+		\item $e$ heißt linksneutral (bzgl. $*$) $\logeq \forall x \in X : e * x = x$
+		\item $e$ heißt rechtsneutral (bzgl. $*$) $\logeq \forall x \in X : x * e = x$
+		\item $e$ heißt neutral, wenn $e$ links- und rechtsneutral ist.
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	Alle Strukturen dieser Art haben genau ein neutrales Element. $e$ ist eindeutig!
+\end{remark}
+
+\begin{definition}[Gruppe]
+	$X$...Menge, $*:X^{2}\rightarrow X$
+	
+	$(X,*)$ heißt Gruppe $\logeq$
+	\begin{itemize}
+		\item $\forall x,y,z \in X : x*(y*z)=(x*y)*z$
+		\item $\exists e \in X : e$ neutral
+		\item $\forall x \in X : \exists y \in X : (x*y)=(y*x)=e$
+	\end{itemize}
+\end{definition}
+
+\begin{schreibweise}
+	Wenn $*$ assoziativ ist $x*y*z \coloneqq (x*y)*z = x*(y*z)$
+\end{schreibweise}
+
+\begin{remark}
+	In einer Gruppe ist das inverse Element jeweils eindeutig.
+	
+	$\forall x \forall y,y' : (y,y'$ invers zu x $) \implies y = y'$
+\end{remark}
+
+\begin{definition}
+	$(X,*)$...Gruppe
+	
+	$X$ heißt kommutativ oder abelsch $\logeq \forall x \in X \forall y \in X : x*y=y*x$
+\end{definition}
+
+\begin{schreibweise}
+	$(K,*)$...Gruppe, $x \in X$
+	
+	$x^{-1}$... inverses Element von $x$
+\end{schreibweise}
+
+\begin{remark}
+	In einer Gruppe ist das neutrale Element eindeutig.
+\end{remark}
+
+\begin{lemma}
+	Sei $(X,*)$ eine Gruppe.
+	
+	\begin{itemize}
+		\item $\forall x \in X \forall y \in X \forall y' \in X : (x*y=x*y') \logeq y=y'$
+		\item $\forall x,y,y' : y*x=y'*x \logeq y=y'$
+		\item $\forall u,v \in X \exists ! x \in X \exists ! y \in X : u * x = v \land y * u = v$
+	\end{itemize}
+\end{lemma}
+
+\begin{definition}[Untergruppe]
+	$(X,*)$...Gruppe
+	
+	$U \leq X$ ist eine Untergruppe von $(X,*) \logeq$
+	
+	\begin{itemize}
+		\item $U \neq \emptyset$
+		\item $U$ ist abgeschlossen bzgl. $*$ : $\forall x,y \in U : x*y \in U$
+		\item $U$ ist abgeschlossen bzgl. $x^{-1}$ : $\forall x \in U : x^{-1} \in U$
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	Wenn $(X,*)$ eine Gruppe ist heißen $(\{e\},*)$ und $(X,*)$ triviale Untergruppen.
+\end{remark}
+
+\subsection{Körper}
+
+\begin{definition}[Körper]
+	$(K,+,*)$ heißt Körper $\logeq K$...Menge, $+:K^{2}\rightarrow K$, $*:K^{2}\rightarrow K$ und $\exists 0, 1 \in K : 0 \neq 1$, sodass
+	
+	\begin{itemize}
+		\item $(K,+)$ ist eine kommutative Gruppe mit neutralem Element $0$.
+		\item $(K\setminus \{0\},*)$ ist eine kommutative Gruppe mit neutralem Element $1$.
+		\item $\forall x,y,z \in K : x(y+z)=xy+xz \land (y+z)x=yx+zx$
+	\end{itemize}
+\end{definition}
+
+\begin{schreibweise}
+	$K^{x}\coloneqq K\setminus\{0\}$
+\end{schreibweise}
+
+\begin{remark}
+	Körper sind Nullteiler frei.
+\end{remark}
+
+\begin{lemma}
+	$(K,+,*)$... Körper
+	
+	\begin{itemize}
+		\item $\forall x \in K : (x*0)=(0*x)=0$
+		\item $1*0=0*1=0$ also $1$ ist neutral bzgl. $(K,*)$
+		\item $\forall x,y \in K : -(xy)=(-x)y \land -(xy)=x(-y)$
+		\item $(-1)(-1)=1$
+		\item $\forall x,y \in K : x*y=0 \implies x = 0 \lor y = 0$
+	\end{itemize}
+\end{lemma}
+
+\begin{definition}
+	$(K,+,*)$...Körper
+	
+	$U \leq K$ heißt Unterkörper von $(K,+,*)$, wenn
+	
+	\begin{itemize}
+		\item $0 \in U \land 1 \in U$
+		\item $U$ abgeschlossen unter $+$, additiv Inversen, $*$ und multiplikativ Inversen
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	$(K,+,*)$...Körper
+	
+	$char K \coloneqq minimale n \in \mathbb{N}^{+} : 1+1+...+1=0$, falls so ein $n$ existiert und $0$ sonst.
+\end{definition}
+
+\subsection{Gruppenhomomorphismen}
+
+\begin{definition}
+	Seien $(G,*)$ und $(G',*)$ Gruppen.
+	
+	$h:G\rightarrow G'$ heißt Homomorphismus $\logeq \forall x,y \in G : h(x*y)=h(x)*h(y)$
+	
+	Allgemein gilt das bei jeder Algebra.
+	
+	Wenn $h$ bijektiv nennt man $h$ auch Isomorphismus. Wenn zusätzlich $(G,*) = (G',*)$ heißt $h$ Automorphismus.
+	
+	$(G,*)$ und $(G',*)$ heißen isomorph, wenn $\exists h:G\rightarrow G'$ mit $h$ Isomorphismus.
+\end{definition}
+
+\begin{remark}
+	$(G,*)$ und $(G',*)$... Gruppen, $h:G\rightarrow G'$ Homomorphismus
+	
+	\begin{itemize}
+		\item $h(e_{G}=e_{G'})$
+		\item $\forall x \in G : h(x^{-1})=h(x)^{-1}$
+	\end{itemize}
+\end{remark}
+
+\begin{definition}
+	$(G,*)$ und $(G',*)$ ... Gruppen, $h:G\rightarrow G'$ Homomorphismus
+	
+	Bild von $h \coloneqq h[G]\coloneqq \{h(x):x\in G\}$
+	
+	$h[G]$ ist Untergruppe von $(G',*)$.
+	
+	Kern von $h \coloneqq ker h \coloneqq h^{-1}[\{e_{G}\}]=\{x \in G : h(x) = e_{G}\}$
+\end{definition}
+
+\begin{lemma}
+	$(G,*)$ und $(G',*)$... Gruppen, $h:G\rightarrow G'$... Homomorphismus
+	
+	\begin{itemize}
+		\item $kerh \leq (G,*)$
+		\item $\forall a,b \in G:h(a)=h(b)\logeq a^{-1}b \in kerh$
+		\item $\forall a,b \in G:h(a)=h(b)\logeq ab^{-1} \in kerh$
+		\item $\forall a,b \in G:h(a)=h(b)\logeq b^{-1}a \in kerh$
+		\item $\forall a,b \in G:h(a)=h(b)\logeq ba^{-1} \in kerh$
+		\item $h$ injektiv $\logeq kerh=\{e_{G}\}$
+	\end{itemize}
+\end{lemma}
+
+\begin{definition}
+	$(G,*)$... Gruppe, $U$... Untergruppe von $G$, $a \in G$
+	
+	$a*U\coloneqq \{a*u:u \in U\}$ heißt Linksnebenklasse von $U$.
+	
+	$U*a\coloneqq \{u*a:u \in U\}$ heißt Rechtsnebenklasse von $U$.
+\end{definition}
+
+\begin{remark}
+	$(G,*)$... Gruppe, $U$... Untergruppe von $G$, $a,b \in G$
+	
+	$b \in aU \logeq aU=bU \logeq a \in bU$
+	
+	Wenn $u \in U \implies uU=U$
+\end{remark}
+
+\begin{remark}
+	Linksnebenklassen bilden Partition von $(G,*)$.
+\end{remark}
+
+\begin{definition}
+	$(G,*)$... Gruppe, $U$... Untergruppe von $G$
+	
+	$U$ heißt Normalteiler der Gruppe, wenn $\forall a \in G : aU\subseteq Ua$.
+	
+	Dabei stimmt immer auch $aU\supseteq Ua$ und somit $aU=Ua$.
+	
+	Wenn $(G,*)$ kommutativ ist, ist jede Untergruppe Normalteiler.
+	
+	Mit $G/U$ bezeichnet man die Menge aller Linksnebenlassen, also $G/U\coloneqq\{aU:a\in G\}$
+\end{definition}
+
+\begin{lemma}
+	$(G,*)$... Gruppe, $U$... Untergruppe, $G/U$... Menge aller Linksnebenklassen
+	
+	$\forall aU,bU \in G/U:(aU)*(bU)\coloneqq(ab)U$
+\end{lemma}
+
+\begin{lemma}
+	$(G,*)$... Gruppe, $U \leq(G,*)$... Normalteiler
+	
+	$*:G/U\rightarrow G/U$ definiert durch $aU*bU\coloneqq (ab)U$
+	
+	$(G/U,*)$ bildet eine Gruppe.
+\end{lemma}
+
+\begin{remark}
+	$(G,*)$ und $(G',*)$... Gruppen, $h:G\rightarrow G'$ Homomorphismus
+	
+	Dann ist $kerh$ Normalteiler von $(G,*)$.
+\end{remark}
+
+\begin{lemma}
+	$(G,*)$... Gruppe, $U\leq(G,*)$... Normalteiler
+	
+	Dann existiert ein $h:G\rightarrow G/U$ definiert durch $a \mapsto aU$. $h$ ist Homomorphismus von $(G,*)$ nach $(G/U,*)$ und $kerh=U$.
+\end{lemma}
+
+\begin{remark}
+	Jeder Normalteiler ist Kern eines Homomorphismus.
+\end{remark}
+
+\begin{theorem}[Homomorphiesatz für Gruppen]
+	$(G,*)$ und $(G',*)$... Gruppen, $h:G\rightarrow G'$... Homomorphismus
+	
+	$\tilde{h}:G/_{kerh}\rightarrow G'$ mit $a*kerh\mapsto h(a) \implies \tilde{h}$ Homomorphismus, injektiv und $ker\tilde{h}=\{kerh\}$
+\end{theorem}
+
+\subsection{Vektorräume}
+\begin{definition}
+	$M$... Menge
+	
+	Ein n-tupel wird definiert als $M^{n}\coloneqq \{f : f$ ist Funktion von $\{1,2,...,n\}$ nach $M\}$.
+\end{definition}
+
+\begin{definition}
+	$(K,+,*)$... Körper
+	
+	Ein Vektorraum über $(K,+,*)$ ist definiert als $(V,+,(\phi_{c})_{c \in K})$ wobei $V$ eine Menge ist, $+:V^{2}\rightarrow V$ und $\forall c \in K : \phi_{c}:V\rightarrow V$ definiert durch $x \mapsto \phi_{c}(x) \eqqcolon c*x$. Weiters muss folgendes gelten:
+	
+	\begin{itemize}
+		\item $(V,+)$ ist eine Gruppe.
+		\item $\forall c \in K \forall x,y \in V: c*(x+y)=cx+cy$
+		\item $\forall c,d \in K \forall x \in V: (c+d)*x = cx+dx$
+		\item $\forall c,x \in K \forall x \in V: (c*d)*x=c*(d*x)$
+		\item $\forall x \in V : 1*x=x$
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	$(K^{n},+,*)$ ist kein Körper, sondern ein Vektorraum. Dabei ist $(0,0,...,0)^{T}$ das neutrale Element bzgl. $+$, $(-a_{1},...,-a_{n})$ ist das inverse Element und $+$ ist assoziativ.
+\end{remark}
+
+\begin{remark}
+	$(V,+)$... Vektorraum über $(K,+,*)$
+	
+	\begin{itemize}
+		\item $(V,+)$ ist kommutativ
+		\item $\forall a \in V : 0*a=0$
+		\item $\forall a \in V : (-1) * a = -a$
+		\item $\forall c \in K : c * 0 = 0$
+	\end{itemize}
+\end{remark}
+
+\begin{definition}
+	$(V,+)$... Vektorraum über $(K,+,*)$
+	
+	$U \leq V$ heißt Unterraum von $V \logeq$
+	
+	\begin{itemize}
+		\item $U \neq \emptyset$
+		\item $U$ abgeschlossen unter $+$
+		\item $U$ abgeschlossen unter $*$
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	$x \in U \implies -x \in U$, da $-x = (-1)*x \in U$
+	
+	Statt $U \neq \emptyset$ kann man auch $0 \in U$ verwenden.
+	
+	Ein Unterraum ist selbst wieder ein Vektorraum.
+	
+	$\{0\}$ und $V$ nennt man auch triviale Unterräume von $V$.
+\end{remark}
+
+\end{document}

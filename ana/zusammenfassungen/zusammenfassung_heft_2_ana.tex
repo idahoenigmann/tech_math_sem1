@@ -1,0 +1,442 @@
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{centernot}
+
+\newtheorem{theorem}{Satz}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Bemerkung}
+\newtheorem*{schreibweise}{Schreibweise}
+
+%opening
+\title{Zusammenfassung Heft 2 ANA}
+\author{Ida Hönigmann}
+
+\newcommand*{\logeq}{\Leftrightarrow}
+
+\begin{document}
+	
+\maketitle
+
+\section{Rationale Zahlen}
+\begin{definition}
+	Ein angeordneter Körper heißt vollständig angeordnet, falls $\emptyset \neq M \subseteq K$ und $M$ nach oben beschränkt ($\implies M$ hat Supremum).
+\end{definition}
+
+\begin{lemma}
+	vollständig angeordnet $\implies$ archimedisch angeordnet
+\end{lemma}
+
+\begin{theorem}
+	$K$ und $L$... vollständig angeordnete Körper $\implies \exists ! \phi:L\rightarrow K$ mit $+$ und $*$ verträglich, bijektiv und mit $\leq$ verträglich.
+\end{theorem}
+	
+\begin{schreibweise}
+	$\mathbb{R}=$ vollständig angeordneter Körper
+\end{schreibweise}
+
+\begin{theorem}
+	$x\in \mathbb{R}$, $x\geq 0$, $n \in \mathbb{N}$
+	
+	Dann $\exists ! y \in \mathbb{R}, y \geq 0 : y^{n}=x$
+\end{theorem}
+	
+\begin{definition}
+	$x \in \mathbb{R}$, $x \geq 0$
+	
+	Sei $\sqrt[n]{x}$ die eindeutige Zahl $y \geq 0$ mit $y^{n}=x$.
+\end{definition}
+	
+\begin{remark}
+	$y \mapsto y^{n}$ ist bijektiv
+\end{remark}
+	
+\begin{lemma}
+	\begin{itemize}
+		\item $\sqrt[q]{\frac{1}{x}}=\frac{1}{\sqrt[q]{x}}$
+		\item $\sqrt[q]{xz}=\sqrt[q]{x}*\sqrt[q]{z}$
+		\item $(\sqrt[q]{x})^{p}=\sqrt[q]{x^{p}}$
+	\end{itemize}
+\end{lemma}
+
+\begin{definition}
+	$x \in \mathbb{R}$, $x>0$, $r \in \mathbb{Q}$, $r=\frac{p}{q}$ mit $p \in \mathbb{Z}$ und $q \in \mathbb{N}$
+	
+	$x^{r}=(\sqrt[q]{x})^{p}$
+\end{definition}
+	
+\begin{lemma}
+	\begin{itemize}
+		\item $x^{r+s}=x^{r}*x^{s}$
+		\item $(x^{r})^{s}=x^{r*s}$
+		\item $x^{-1}=\frac{1}{x^{r}}$
+	\end{itemize}
+\end{lemma}	
+
+\begin{remark}
+	$\mathbb{R} \supset \mathbb{Q}$, da $\sqrt{2} \notin \mathbb{Q}$, $\sqrt{2} \in \mathbb{R}$
+\end{remark}
+
+\begin{definition}
+	$\mathbb{R}\setminus\mathbb{Q}$ heißen irrationale Zahlen, dafür schreibt man auch $\mathbb{I}$.
+\end{definition}
+
+\begin{lemma}
+	$M$, $N \neq \emptyset$... Mengen $f:M\times N \rightarrow \mathbb{R}$
+	
+	Falls $f(M\times N)$ nach oben beschränkt, so gilt
+	
+	$sup(\{f(m,n) : (m,n) \in M \times N\})=sup(\{s_{q}:q \in N\})=sup(\{sup(\{f(m,n):m \in M\}) : n \in N\})$
+	
+	Falls $\forall n \in N \{f(m,n):m \in M\}$ nach oben beschränkt und falls $\{sup(\{f(m,n):m \in M\}) : n \in N\}$ nach oben beschränkt ist, dann ist $f(M\times N)$ nach oben beschränkt.
+\end{lemma}
+
+\begin{remark}
+	$A,B \subset \mathbb{R} \implies sup(A+B)=sup(A)+sup(B)$
+\end{remark}
+
+\section{Komplexe Zahlen}
+\begin{definition}
+	$\mathbb{C}\coloneqq \mathbb{R}\times\mathbb{R}$
+\end{definition}
+
+\begin{schreibweise}
+	$(a,b) \in \mathbb{C}$ werden in der Form $a+ib$ geschrieben. $a$ nennt man den Realteil, $b$ nennt man den Imaginärteil der Zahl.
+\end{schreibweise}
+
+\begin{definition}
+	$a+ib,c+id \in \mathbb{C}$
+	
+	$(a+ib)+(c+id)=(a+c)+i(b+d)$
+	
+	$(a+ib)*(c+id)=(ac-bd)+i(ad+bc)$
+\end{definition}
+
+\begin{schreibweise}
+	$a+ib \in \mathbb{C}$ mit $b=0$ heißt rein reell. $a\coloneqq (a+ib)$
+	
+	$a+ib \in \mathbb{C}$ mit $a=0$ heißt rein imaginär. $ib\coloneqq (a+ib)$
+	
+	$z=(a+ib)$ dann ist $Rez=a$ und $Imz=b$
+\end{schreibweise}
+
+\begin{remark}
+	$i$ ist Lösung von $x^{2}+1=0$.
+\end{remark}
+
+\begin{theorem}
+	$(\mathbb{C},+,*)$ ist Körper. Dabei ist für $a+ib \in \mathbb{C}$:
+	
+	\begin{itemize}
+		\item $0+i0$ ist additiv neutrales Element
+		\item $-a+i(-b)$ ist additiv inverses Element
+		\item $1+i0$ ist multiplikativ neutrales Element
+		\item $a+ib\neq 0 \implies \frac{a}{a^{2}+b^{2}}+i\frac{(-b)}{a^{2}+b^{2}}$ ist multiplikativ inverses Element
+	\end{itemize}
+\end{theorem}
+
+\begin{remark}
+	$\mathbb{C}$ ist kein angeordneter Körper.
+\end{remark}
+
+\begin{remark}
+	$\mathbb{C}$ ist Vektorraum über $\mathbb{C}$ mit Dimension $1$.
+	
+	$\mathbb{C}$ ist Vektorraum über $\mathbb{R}$ mit Dimension $2$.
+\end{remark}
+
+\begin{definition}
+	$z\coloneqq (a+ib) \in \mathbb{C}$
+	
+	$\bar{z}\coloneqq a+i(-b)$ heißt konjugiert komplexe Zahl.
+	
+	$|z|=\sqrt{a^{2}+b^{2}}$ mit $|z|=0 \logeq (a+ib)=(0+i0)$
+\end{definition}
+
+\begin{remark}
+	"$\mathbb{R}\subseteq\mathbb{C}$"
+\end{remark}
+
+\begin{lemma}
+	\begin{itemize}
+		\item $|Rez|\leq |z|$
+		\item $|Imz|\leq |z|$
+		\item $|z*w|=|z|*|w|$
+		\item $|z+w|\leq |z|+|w|$
+		\item $||z|-|w||\leq |z-w|$
+		\item $|\bar{z}|=|z|$
+		\item $z*\bar{z}=|z|^{2}$
+		\item $z\neq 0 \implies \frac{1}{z}=\frac{\bar{z}}{|z|^{2}}=\frac{a}{|z|^{2}}+i\frac{-b}{|z|^{2}}$
+	\end{itemize}
+\end{lemma}
+
+\section{Grenzwerte}
+
+\begin{definition}
+	$M=\emptyset$, $d:M\times M \rightarrow \mathbb{R}$
+	
+	$(M,d)$ heißt metrischer Raum, falls
+	
+	\begin{itemize}
+		\item (M1) $d(x,y)\geq 0$ und $d(x,y)=0\logeq x=y$
+		\item (M2) $d(x,y)=d(y,x)$
+		\item (M3) $x,y,z \in M \implies d(x,z) \leq d(x,y) + d(y,z)$
+	\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	$p \in \mathbb{N}$, $a_{1},...,a_{p},b_{1},...,b_{p} \in \mathbb{R}$
+	
+	$(\sum_{j=1}^{n}a_{j}*b_{j})^{2}\leq(\sum_{j=1}^{n}a_{j}^{2})*(\sum_{j=1}^{n}b_{j}^{2})$
+	
+	$(\sum_{j=1}^{n}(a_{j}+b_{j})^{2})^{\frac{1}{2}} \leq (\sum_{j=1}^{n}a_{j}^{2})^{\frac{1}{2}}+(\sum_{j=1}^{n}b_{j}^{2})^{\frac{1}{2}}$
+\end{lemma}
+
+\begin{definition}
+	$X$... Menge mit $X \neq \emptyset$
+	
+	Eine Folge $x$ ist eine Funktion $x:\mathbb{N}\rightarrow X$.
+	
+	Meist schreibt man $(x_{n})_{n \in \mathbb{N}}$ mit $x_{n}=x(n)$.
+\end{definition}
+
+\begin{definition}
+	$(M,d)$... metrischer Raum, $(x_{n})_{n \in \mathbb{N}}$ ... Folge aus $M$, $x \in M$
+	
+	$(x_{n})_{n \in \mathbb{N}}$ heißt konvergent gegen $x$ falls
+	
+	$\forall \epsilon \in \mathbb{R}, \epsilon > 0 \exists N \in \mathbb{N} \forall n \geq N : d(x_{n},x)< \epsilon$
+	
+	In diesem Fall schreibt man auch
+	
+	$\lim\limits_{n\rightarrow \infty}x_{n}=x$ oder "bei $n \rightarrow \infty$ geht $x_{n}\rightarrow x$'' oder $(x_{n})_{n \in \mathbb{N}}\rightarrow x$.
+\end{definition}
+
+\begin{remark}
+	$\lim\limits_{n\rightarrow\infty}x_{n}=x \logeq \lim\limits_{n\rightarrow\infty}d(x_{n},x)=0$
+\end{remark}
+
+\begin{remark}
+	$k \in \mathbb{Z}$, $\mathbb{Z}_{\geq k}\coloneqq\{p \in \mathbb{Z}: p \geq k\}$
+	
+	$(x_{n})_{n \in \mathbb{Z}_{\geq K}}$... Folge
+	
+	konvergiert $\logeq \forall \epsilon > 0 \exists N \in \mathbb{Z}_{\geq K}:d(x_{n},x)<\epsilon\forall n \geq N$
+	
+\end{remark}
+
+\begin{remark}
+	Folgende Aussagen sind äquivalent:
+	
+	\begin{itemize}
+		\item $\lim\limits_{n\rightarrow\infty}x_{n}=x$
+		\item $\forall\epsilon >0\exists N \forall n \geq N : d(x_{n},x)\leq \epsilon$
+		\item Für ein gewisses $K>0$ gilt: $\forall \epsilon > 0 \exists N \forall n \geq N : d(x_{n},x)< K*\epsilon$
+		\item Für ein gewisses $K>0$ gilt: $\forall \epsilon > 0 \exists N \forall n \geq N: d(x_{n},x)\leq K*\epsilon$
+	\end{itemize}
+\end{remark}
+
+\begin{definition}
+	Sei $(x_{n})_{n \in \mathbb{N}}$ eine Folge in $M$. Ist $n:\mathbb{B}\rightarrow\mathbb{N}$ streng monoton wachsend, so heißt $(x_{n(j)})_{j\in \mathbb{N}}$ eine Teilfolge von $(x_{n})_{n \in \mathbb{N}}$.
+\end{definition}
+
+\begin{theorem}
+	$(M,d)$... metrischer Raum, $(x_{n})_{n \in \mathbb{N}}$... Folge in $M$, $x \in M$
+	
+	\begin{itemize}
+		\item $(x_{n})_{n \in \mathbb{N}}$ hat höchstens einen Grenzwert
+		\item $k \in \mathbb{N}$ beliebig. $(x_{n})_{n \in \mathbb{N}}\rightarrow x \logeq (x_{n})_{n \in \mathbb{Z}_{\geq k}}\rightarrow x$
+		\item $k \in \mathbb{N}$ beliebig. $(x_{n})_{n \in \mathbb{N}}\rightarrow x \logeq (x_{n}+k)_{n \in \mathbb{N}}\rightarrow x \logeq (x_{n}-k)_{n \in \mathbb{Z}_{\geq k+1}}\rightarrow x$
+		\item $(x_{n})_{n \in \mathbb{N}}\rightarrow x \land (x_{n(j)})_{j \in \mathbb{N}}$ ist Teilfolge von $(x_{n})_{n \in \mathbb{N}} \implies \lim\limits_{j\rightarrow \infty}(x_{n(j)})_{j \in \mathbb{N}}=x$
+	\end{itemize}
+\end{theorem}
+
+\begin{remark}
+	Teilfolge konvergiert $\centernot\implies$ Folge konvertiert
+\end{remark}
+
+\begin{lemma}
+	$(x_{n})_{n \in \mathbb{N}}\rightarrow x$, $(y_{n})_{n \in \mathbb{N}}\rightarrow y$ ... Folgen in $(M,d)$
+	
+	$\implies \lim\limits_{n\rightarrow \infty}d(x_{n},y_{n})=d(x,y)$
+\end{lemma}
+
+\begin{lemma}
+	$(M,d)$... metrischer Raum, $a_{1},a_{2},b_{1},b_{2} \in M$
+	
+	$|d(a_{1},b_{1})-d(a_{2},b_{2})|\leq d(a_{1},a_{2})+d(b_{1},b_{2})$
+\end{lemma}
+
+\begin{definition}
+	$(M,d)$... metrischer Raum
+	
+	\begin{itemize}
+		\item $Y \subseteq M$ heißt beschränkt, falls $Y \neq \emptyset$ und $\exists z \in M \exists c > 0 \forall y \in Y : d(z,y)\leq c$
+		\item $f:E\rightarrow M$ heißt beschränkt wenn $f(E)\subseteq M$ beschränkt ist.
+		\item $(x_n)_{n \in \mathbb{N}}$... Folge aus $M$ heißt beschränkt, falls $x:\mathbb{N}\rightarrow M$ beschränkt ist.
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	$\emptyset \neq Y \subseteq M$ ist beschränkt $\logeq \forall x \in M : \exists C_x \geq 0 \forall y \in Y: d(y,x)\leq C_x$
+\end{remark}
+
+\begin{lemma}
+	$(x_n)_{n \in \mathbb{N}}... Folge in (M,d)$
+	
+	$\lim\limits_{n\rightarrow\infty}x_n =x \implies (x_n)_{n \in \mathbb{N}}$ ist beschränkt.
+\end{lemma}
+
+\begin{lemma}
+	$(x_n)_{n \in \mathbb{N}}$, $(y_n)_{n \in \mathbb{N}}$ ... Folgen in $(\mathbb{R},d_2)$ mit $x_n\rightarrow x$ und $y_n\rightarrow y$
+	
+	Dann gelten folgende Aussagen:
+	\begin{itemize}
+		\item $\exists c \in \mathbb{R} : x < c \implies \exists N \in \mathbb{N}; x_n < c \forall n \geq N$.
+		\item $x<y\implies \exists N \forall n \geq N : x_n < y_n$
+		\item $\exists N \in \mathbb{N} \forall n \geq N: x_n \leq y_n \implies x \leq y$
+	\end{itemize}
+\end{lemma}
+
+\begin{theorem}
+	$(x_n)_{n \in \mathbb{N}}$, $(y_n)_{n \in \mathbb{N}}$, $(a_n)_{n \in \mathbb{N}}$... Folgen in $(\mathbb{R},d_2)$
+	
+	$x_n\rightarrow a \land y_n \rightarrow a \land x_n \leq a_n \leq y_n$ für alle $n \in \mathbb{N}$ bis auf endlich viele $\implies a_n \rightarrow a$
+\end{theorem}
+
+\begin{theorem}
+	Sei $(z_n)_{n \in \mathbb{N}}$, $(w_n)_{n \in \mathbb{N}}$ Folgen aus $\mathbb{C}$ mit $z_n \rightarrow z$ und $w_n \rightarrow w$, dann gelten folgende Aussagen:
+	
+	\begin{itemize}
+		\item $\lim\limits_{n\rightarrow \infty}|z_n|=|z|$ und $\lim\limits_{n\rightarrow \infty}\bar{z_n}=\bar{z}$
+		
+		\item $\lim z_n + w_n = z+w$ und $\lim (-z_n)=-z$
+		
+		\item $z = 0$ und $(u_n)_{n \in \mathbb{N}}$... beschränkte Folge $\implies z_n * u_n \rightarrow 0$
+		
+		\item $\lim z_n * w_n = z*w$
+		
+		\item $\lim z_n^k = z^k$, falls $k \in \mathbb{N}$ fest
+		
+		\item $z \neq 0 \implies \lim \frac{1}{z_n}=\frac{1}{z}$
+		
+		\item $z_n \in \mathbb{R}, z_n \geq 0, z \in \mathbb{R}$, $z \geq 0$, $k \in \mathbb{N}$ fest $\implies \sqrt[k]{z_n}\rightarrow \sqrt[k]{z}$
+	\end{itemize}
+\end{theorem}
+
+\begin{definition}
+	Eine Folge $(a_n)_{n \in \mathbb{N}}$ in $\mathbb{R}$ heißt
+	
+	\begin{itemize}
+		\item monoton wachsend, falls $\forall n \in \mathbb{N} : a_n \leq a_{n+1}$
+		\item monoton fallend, falls $\forall n \in \mathbb{N} : a_n \geq a_{n+1}$
+		\item streng monoton wachsend, falls $\forall n \in \mathbb{N} : a_n < a_{n+1}$
+		\item streng monoton fallend, falls $\forall n \in \mathbb{N} : a_n > a_{n+1}$
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}
+	Falls $(x_n)_{n \in \mathbb{N}}$ eine monoton wachsende Folge in $\mathbb{R}$ ist nach oben beschränkt (d.h. $\exists c > 0 \forall n \in \mathbb{N} : x_n \leq c$), dann ist $(x_n)_{n \in \mathbb{N}}$ konvergent.
+	
+	$\lim\limits_{n \rightarrow \infty}x_n=sup(\{x_n : n \in \mathbb{N}\})$
+	
+	Falls $(x_n)_{n \in \mathbb{N}}$ eine monoton fallende Folge in $\mathbb{R}$ ist nach unten beschränkt (d.h. $\exists c > 0 \forall n \in \mathbb{N} : x_n \geq c$), dann ist $(x_n)_{n \in \mathbb{N}}$ konvergent.
+	
+	$\lim\limits_{n \rightarrow \infty}x_n=inf(\{x_n : n \in \mathbb{N}\})$
+\end{theorem}
+
+\begin{definition}
+	$(x_n)_{n \in \mathbb{N}}$ ... beschränkte Folge in $\mathbb{R}$, $N \in \mathbb{N}$
+	
+	$y_N \coloneqq inf(\{x_n : n \geq N\})$
+	
+	$z_N \coloneqq inf(\{x_n : n \geq N\})$
+	
+	$\liminf\limits_{n \rightarrow \infty}x_n\coloneqq \lim\limits_{N \rightarrow \infty}y_N = sup\{y_N : N \in \mathbb{N}\}$
+	
+	$\limsup\limits_{n \rightarrow \infty}x_n\coloneqq \lim\limits_{N \rightarrow \infty}z_N = inf\{z_N : N \in \mathbb{N}\}$
+\end{definition}
+
+\begin{lemma}
+	$(x_n)_{n \in \mathbb{N}}$... beschränkte Folge in $\mathbb{R}$
+	
+	$\implies \exists$ Teilfolge $(x_{n(j)})_{j \in \mathbb{N}}$ mit $\lim\limits_{j \rightarrow \infty}x_{n(j)}=\liminf\limits_{n \rightarrow \infty}x_n$
+	
+	$\implies \exists$ Teilfolge $(x_{n(j)})_{j \in \mathbb{N}}$ mit $\lim\limits_{j \rightarrow \infty}x_{n(j)}=\limsup\limits_{n \rightarrow \infty}x_n$
+\end{lemma}
+
+\begin{lemma}
+	$(x_n)_{n \in \mathbb{N}}$, $(y_n)_{n \in \mathbb{N}}$... beschränkte Folge in $\mathbb{R}$
+	
+	\begin{itemize}
+		\item $\liminf\limits_{n \rightarrow \infty}x_n \leq \limsup\limits_{n \rightarrow \infty}x_n$
+		\item $\forall n : x_n \leq y_n \implies \liminf a_n \leq \liminf b_n \land \limsup a_n \leq \limsup b_n$
+		\item $\limsup\limits_{n \rightarrow \infty}(-x_n)=-\liminf\limits_{n \rightarrow \infty}x_n$ und $\liminf\limits_{n \rightarrow \infty}(-x_n)=-\limsup\limits_{n \rightarrow \infty}x_n$
+		\item $\lim\limits_{n \rightarrow \infty}x_n=x \logeq \liminf\limits_{n \rightarrow \infty}x_n = x \land \limsup\limits_{n \rightarrow \infty}x_n = x$
+	\end{itemize}
+\end{lemma}
+
+\subsection{Cauchy-Folgen}
+
+\begin{definition}
+	$(M,d)$... metrischer Raum
+	
+	$(x_n)_{n \in \mathbb{N}}$ in $M$ heißt Cauchy-Folge, falls $\forall \epsilon > 0 \exists N \in \mathbb{N} \forall n, m \geq N : d(x_m,x_n)< \epsilon$
+\end{definition}
+
+\begin{remark}
+	Ob $\epsilon$ aus $\mathbb{R}$ oder $\mathbb{Q}$ stammt ist egal.
+	
+	$(x_n)\rightarrow x \logeq \forall \epsilon > 0 \in \mathbb{Q} \forall n \geq N : d(x_n,x) < \epsilon$
+\end{remark}
+
+\begin{lemma}
+	$(x_n)_{n \in \mathbb{N}}$ ist Cauchy-Folge $\implies (x_n)$ ist beschränkt.
+\end{lemma}
+
+\begin{lemma}
+	$(M,d)$... metrischer Raum, $(x_n)_{n \in \mathbb{N}}$... Folge in $M$
+	
+	Falls $(x_n)$ konvergent ist, dann ist $(x_n)$ auch eine Cauchy-Folge.
+\end{lemma}
+
+\begin{remark}
+	Cauchy-Folge impliziert nicht, das die Folge konvergiert.
+\end{remark}
+
+\begin{definition}
+	Ein metrischer Raum heißt vollständig, falls jede Cauchy-Folge auch gegen einen Punkt aus diesem metrischen Raum konvergiert.
+\end{definition}
+
+\begin{lemma}
+	$(M,d)$... metrischer Raum
+	
+	Falls $(x_n)_{n \in \mathbb{N}}$ eine Cauchy-Folge ist und falls $\exists$ Teilfolge $(x_{n(j)})_{j \in \mathbb{N}}$ mit $\lim\limits_{j \rightarrow \infty}x_{n(j)}=x \in M$
+	
+	$\implies \lim\limits_{n \rightarrow \infty}x_n = x$
+\end{lemma}
+
+\begin{theorem}
+	$(\mathbb{R},d_2)$ ist ein vollständig metrischer Raum.
+\end{theorem}
+
+\begin{lemma}
+	$(x_n)_{n \in \mathbb{N}}$ ... Folge aus $\mathbb{R}^p$, $x_n=(\xi_{n,1},...,\xi_{n,p})$
+	
+	$x=(\xi_1,...,\xi_p) \in \mathbb{R}^p$
+	
+	Falls $x_n \rightarrow x$ bzgl. $d_1,d_2,d_{\infty}$, dann gilt $x_n \rightarrow x$ bzgl. aller dieser Metriken. Weiters gilt $x_n \rightarrow x$ bzgl. $d_1,d_2,d_{\infty} \logeq \forall j \in \{1,...,p\} : \xi_{n,j} \rightarrow \xi_j in (\mathbb{R}, d_2)$.
+\end{lemma}
+
+\begin{lemma}
+	$(\mathbb{R}^p,d_{1, 2 oder \infty})$ ist vollständig metrischer Raum.
+\end{lemma}
+
+\end{document}

@@ -1,0 +1,388 @@
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\newtheorem{theorem}{Satz}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Bemerkung}
+\newtheorem*{schreibweise}{Schreibweise}
+
+%opening
+\title{Zusammenfassung Heft 1 ANA}
+\author{Ida Hönigmann}
+
+\newcommand*{\logeq}{\Leftrightarrow}
+
+\begin{document}
+
+\maketitle
+
+\section{Die reellen Zahlen}
+\subsection{Körper}
+\begin{definition}[Körper]
+	$(K,+,*)$ heißt Körper, falls:
+	\begin{enumerate}
+		\item $K \neq \emptyset$
+		\item $0,1 \in K$
+		\item (a1) $(x+y)+z = x+(y+z)$
+		\item (a2) $x+0=0+x=x$
+		\item (a3) $\forall x \in K : \exists (-x) \in K$
+		\item (a4) $\forall x,y \in K : x+y=y+x$
+		\item (m1) $\forall x,y \in K : (x * y)*z = x*(y*z)$
+		\item (m2) $\forall x \in K\setminus \{0\} : x*1=1*x=x$
+		\item (m3) $\forall x \in K\setminus \{0\} : \exists x^{-1} \in K : x * (x^{-1}) = (x^{-1}) * x = 1$
+		\item (m4) $\forall x,y \in K : x * y = y * x$
+		\item (d) $\forall x,y,z \in K : x*(y+z) = (x*y)+(x*z)$
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	Wenn $(K,+,*)$ ein Körper ist, dann ist $(K,+)$ und $(K \setminus \{0\}, *)$ eine kommutative Gruppe.
+\end{remark}
+
+\begin{schreibweise}
+	Wenn $(K,+,*)$ ein Körper und $u,w,x,y,z \in K$ ist schreiben wir auch:
+	\begin{itemize}
+		\item $xy \coloneqq x * y$
+		\item $\frac{x}{y} \coloneqq x * y^{-1}$ bei $y \neq 0$
+		\item $uw+xy \coloneqq (u * w) + (x * y)$
+		\item $x - y \coloneqq x + (-y)$
+	\end{itemize}
+\end{schreibweise}
+
+\begin{lemma}
+	$(K,+,*)$ ... Körper, dann gelten folgende Regeln:
+	\begin{itemize}
+		\item $\forall x \in K : (-(-x)) = x$
+		\item $\forall x \in K \setminus \{0\} : (x^{-1})^{-1} = x$
+		\item $\forall x \in K : x * 0 = 0$
+		\item $\forall x,y \in K \setminus\{0\} : x * y \neq 0$
+		\item $(x*y)^{-1} = x^{-1} * y^{-1}$
+		\item $(-x)^{-1} = -(x^{-1})$
+		\item $(-1)*(-1)=1$
+		\item $x(-y)=-(x*y)$
+		\item $(-x)(-y)=x*y$
+		\item $x(y-z)=xy-xz$
+		\item $\forall a,b,c,d \in K, b,d \neq 0 : \frac{a}{b}*\frac{c}{d}=\frac{ac}{bd}$
+	\end{itemize}
+\end{lemma}
+
+\begin{schreibweise}
+	$(K,+,*)$ ... Körper, $A,B\subseteq K$
+	\begin{itemize}
+		\item $-A = \{-x : x \in A\}$
+		\item $A+B = \{x+y : x \in A, y \in B\}$
+		\item $A-B = \{x-y : x \in A, y \in B\}$
+		\item $A*B = \{x*y : x \in A, y \in B\}$
+	\end{itemize}
+\end{schreibweise}
+
+\begin{definition}
+	$(K,+,*)$...Körper, $x \in K$, $n \in \mathbb{N}$
+	
+	$n*x$ ist definiert durch: $1*x=x$ und $(n+1)*x=n*x+x$
+	
+	$x^{n}$ ist definiert durch: $x^{1}=x$ und $x^{n+1}=x^{n}*x$
+\end{definition}
+
+\subsubsection{angeordnete Körper}
+\begin{definition}[angeordneter Körper]
+	$(K,+,*)$...Körper heißt angeordneter Körper, falls $\exists P \subseteq K$ mit:
+	\begin{itemize}
+		\item (p1) $K=P\cup \{0\} \cup (-P)$
+		\item (p2) $x,y \in P \implies x + y \in P$
+		\item (p3) $x,y \in P \implies x * y \in P$
+	\end{itemize}
+
+	Für $x,y \in K$ gelte:
+	\begin{itemize}
+		\item $x<y$, falls $y - x \in P$
+		\item $x>y$, falls $x - y \in P$
+		\item $x\leq y$, falls $y - x \in P \cup \{0\}$
+		\item $x\geq y$, falls $x - y \in P \cup \{0\}$
+	\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	Sei $K$ ein angeordneter Körper. $a,b,x,y,z \in K$. Dann gilt:
+	\begin{itemize}
+		\item $x \leq x$
+		\item $x \leq y \land y \leq x \implies x = y$
+		\item $x \leq y \land y \leq z \implies x \leq z$
+		\item $x \leq y \lor y \leq x$
+		\item $x \leq y \land a \leq b \implies x + a \leq y + b$
+		\item $x \leq y \implies -x \geq -y$
+		\item $z > 0 \land x \leq y \implies x * z \leq y * z$
+		\item $z < 0 \land x \leq y \implies x * z \geq y * z$
+		\item $x \neq 0 \implies x^{2} > 0$, insbesondere gilt $1 > 0$
+		\item $x > 0 \implies x^{-1}>0$
+		\item $0 \leq x \leq y \implies \frac{x}{y} \leq 1 \leq \frac{y}{x}$
+		\item $0 \leq x \leq y \implies x^{-1} \geq y^{-1}$
+		\item $0 < x \leq y \land 0 < a \leq b \implies x * a \leq y * b$
+		\item $x < y \implies x < \frac{x + y}{2} < y$
+	\end{itemize}
+\end{lemma}
+
+\subsubsection{Ordnungen auf Körpern}
+\begin{definition}[Halbordnung, Totalordnung]
+	$M$...Menge, $R \subseteq M \times M$...Relation
+	
+	$R$ heißt eine Halbordnung, falls
+	\begin{itemize}
+		\item $\forall x \in M : xRx$
+		\item $\forall x,y \in M : xRy \land yRx \implies x = y$
+		\item $\forall x,y,z \in M : xRy \land yRz \implies xRz$
+	\end{itemize}
+
+	$R$ heißt eine Totalordnung, falls zusätzlich gilt:
+	\begin{itemize}
+		\item $\forall x,y \in M : xRy \lor yRx$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}[Supremum, Infimum]
+	$K$...Menge, $\leq$...Totalordnung auf K, $x,y \in K$, $A \subseteq K \land A \neq \emptyset$
+	
+	\begin{itemize}
+		\item $max(x,y)\coloneqq x$ falls $x \geq y$ und als $y$ falls $x < y$
+		\item $min(x,y)\coloneqq x$ falls $x \leq y$ und als $y$ falls $x > y$
+		\item $max(A) = m \in A$, sodass $\forall a \in A : m \leq a$
+		\item $min(A) = m \in A$, sodass $\forall a \in A : m \geq a$
+	\end{itemize}
+
+	$A$ heißt nach oben beschränkt, falls $\exists x \in K : \forall a \in A : x \geq a$. Dafür schreibt man $A \leq x$. Jedes solches $x$ heißt obere Schranke.
+	
+	$A$ heißt nach unten beschränkt, falls $\exists x \in K : \forall a \in A : x \leq a$. Dafür schreibt man $A \geq x$. Jedes solches $x$ heißt untere Schranke.
+	
+	Falls $A$ nach oben und unten beschränkt ist, heißt $A$ auch beschränkt.
+	
+	Falls $\{x \in K : A \leq x\}$ ein Minimum hat, so heißt dieses Supremum von A. Dafür schreibt man $sup(A)$.
+	
+	Falls $\{x \in K : A \geq x\}$ ein Maximum hat, so heißt dieses Infimum von A. Dafür schreibt man $inf(A)$.
+\end{definition}
+
+\begin{lemma}
+	$K$...totalgeordnete Menge
+	
+	Falls $A \subseteq K$ ein Maximum hat, so ist dieses auch Supremum. Falls $A \subseteq K$ ein Minimum hat, so ist dieses auch Infimum.
+	
+	$A \subseteq B \subseteq K \implies \{x \in K : B \leq x\} \subseteq \{x \in K : A \leq x\}$
+	
+	Falls $A \subset B \subset K$ und falls $A$ und $B$ ein Maximum haben, gilt $Max(A) \leq Max(B)$. Falls $A$ und $B$ ein Minimum haben, gilt $Min(A) \geq Min(B)$.
+	
+	Falls $A \subset B \subset K$ und $A$ und $B$ ein Supremum haben, gilt $sup(A) \leq sup(B)$. Falls $A$ und $B$ ein Infimum haben gilt $inf(A) \geq inf(B)$.
+\end{lemma}
+
+\begin{lemma}
+	$K$...angeordneter Körper, $x,y \in K$, $A \subset K$
+	
+	\begin{itemize}
+		\item $x \leq y \logeq -y \leq -x$
+		\item $x \leq A \logeq -A \leq -x$
+		\item $A \leq x \logeq -x \leq -A$
+		\item $min(-A) = -max(A)$
+		\item $max(-A) = -min(A)$
+		\item $inf(-A) = -sup(A)$
+		\item $sup(-A) = -inf(A)$
+	\end{itemize}
+\end{lemma}
+
+\begin{definition}
+	$K$...angeordneter Körper, $a,b \in K$
+	
+	\begin{itemize}
+		\item $(a, b) \coloneqq \{x \in K : a < x < b\}$
+		\item $[a, b] \coloneqq \{x \in K : a \leq x \leq b\}$
+		\item $[a, b) \coloneqq \{x \in K : a \leq x < b\}$
+		\item $(a, b] \coloneqq \{x \in K : a < x \leq b\}$
+		\item $(a, +\infty) \coloneqq \{x \in K : a < x\}$
+		\item $(-\infty, b) \coloneqq \{x \in K : x < b\}$
+	\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	$K$...angeordneter Körper, $a,b \in K$, $a<b$
+	
+	Es gilt $sup((a,b))=b$ und $inf((a,b))=a$.
+\end{lemma}
+
+\begin{definition}[Signumfunktion, Absolutbetrag]
+	$K$...angeordneter Körper
+	
+	Die Funktion $sgn(x) \coloneqq -1$, falls $x < 0$; $0$, falls $x = 0$ und $1$, falls $x > 0$.
+	
+	Die Funktion $|.| \coloneqq x$, falls $x \geq 0$ und $1$, falls $x < 0$.
+	
+	Es gilt $sgn: K \rightarrow \{-1, 0, 1\}$ und $|.|: K \rightarrow K$.
+\end{definition}
+
+\begin{lemma}
+	$K$...angeordneter Körper, $x,y \in K$
+	
+	\begin{itemize}
+		\item $|x|=sgn(x)*x$
+		\item $x=sgn(x)*|x|$
+		\item $|x*y|=|x|*|y|$
+		\item $max(x,y)=\frac{x+y+|x-y|}{2}$
+		\item $min(x,y)=\frac{x+y-|x-y|}{2}$
+		\item $|x+y|\leq |x|+|y|$
+		\item $||x|-|y||\leq |x-y|$
+	\end{itemize}
+\end{lemma}
+
+\begin{lemma}
+	$K$...angeordneter Körper, $x \in K$, $x \geq -1$
+	
+	Dann gilt $\forall n \in \mathbb{N} : (1 + x)^{n} \geq 1 + n * x$
+\end{lemma}
+
+\subsubsection{archimedisch angeordnete Körper}
+
+\begin{definition}[archimedisch angeordnet]
+	Ein angeordneter Körper $(K,+,*,P)$ heißt archimedisch angeordnet falls $\mathbb{N} \subseteq K$ nicht nach oben beschränkt ist.
+\end{definition}
+
+\begin{theorem}
+	$K$...archimedisch angeordneter Körper, $x,y \in K$, $x<y$
+	
+	Dann existiert ein $p \in \mathbb{Q}$ mit $x<p<y$.
+\end{theorem}
+
+
+\subsection{Ganze Zahlen}
+\begin{definition}
+	$\mathbb{N}_{1}$, $\mathbb{N}_{2}$... Körper von $\mathbb{N}$ disjunkte isomorphe Kopien. Mit $\phi : \mathbb{N} \rightarrow \tilde{\mathbb{N}}$ bijektiv.
+	
+	$\mathbb{Z} \coloneqq \mathbb{N}_{1} \cup \{0\} \cup \mathbb{N}_{2}$
+	
+	$\psi : \mathbb{N}_{1} \rightarrow \mathbb{N}_{2}$
+	
+	$-:\mathbb{Z} \rightarrow \mathbb{Z}$ definiert als $-n: \psi(n)$, falls $n \in \mathbb{N}_{1}$, $0$, falls $n=0$ und $\psi^{-1}(n)$, falls $n \in \mathbb{N}_{2}$.
+	
+	$\mathbb{N} \coloneqq \mathbb{N}_{1}$ und $- \mathbb{N} \coloneqq \mathbb{N}_{2}$ ergibt die neue Definition $\mathbb{Z} \coloneqq - \mathbb{N} \cup \{0\} \cup \mathbb{N}$.
+	
+	$*: \mathbb{Z} \times \mathbb{Z} \rightarrow \mathbb{Z}$ definiert als $|p|*|q|$, falls $p \neq 0, q \neq 0, sgn(p)=sgn(q)$, $0$, falls $p=0 \lor q=0$ und $-(|p|*|q|)$, falls $p \neq 0, q \neq 0, sgn(p) \neq sgn(q)$.
+	
+	$|.|: \mathbb{Z} \rightarrow \mathbb{Z}$ definiert durch $0$, falls $n=0$, $n$, falls $n \in \mathbb{N}$ und $-n$, falls $n \in -\mathbb{N}$.
+	
+	$sgn: \mathbb{Z} \rightarrow \{0, 1, -1\}$ definiert durch $1$, falls $n \in \mathbb{N}$, $0$, falls $n = 0$ und $-1$, falls $n \in - \mathbb{N}$.
+	
+	$+: \mathbb{Z} \times \mathbb{Z} \rightarrow \mathbb{Z}$ definiert durch $p+q$, falls $p, q \in \mathbb{N}$, $-(|p|+|q|)$, falls $p,q \in -\mathbb{N}$, $p-|q|$, falls $p,-q \in \mathbb{N}, p > -q$, $-(|q|-p)$, falls $p,-q \in \mathbb{N}, p < -q$, $-(|p|-q)$, falls $-p,q \in \mathbb{N}, -p>q$, $q-|p|$, falls $-p,q \in \mathbb{N}, -p<q$ und $0$, falls $p=-q$.
+\end{definition}
+
+\begin{schreibweise}
+	Wenn $p,q \in \mathbb{Z}$ wird $p-q \coloneqq p+(-q)$.
+\end{schreibweise}
+
+\begin{theorem}
+	Für $(\mathbb{Z},+,*)$ gelten folgende Aussagen:
+	
+	\begin{itemize}
+		\item $+$ ist kommutativ, assoziativ und $0$ ist neutrales Element bezgl. $+$.
+		\item Für $p \in \mathbb{Z}$ ist $-p$ ein inverses Element bezgl. $+$.
+		\item $*$ ist kommutativ, assoziativ und $1$ ist neutrales Element bzgl. $*$, aber es bildet keine Gruppe.
+		\item Distributivgesetz: $p*(q+r)=(p*q)+(p*r)$
+		\item $p \neq 0 \land q \neq 0 \implies p * q \neq 0$
+	\end{itemize}
+\end{theorem}
+
+\begin{definition}
+	$p,q \in \mathbb{Z}$
+	
+	$p < q \logeq q - p \in \mathbb{N}$ und $p \leq q \logeq q-p \in \mathbb{0} \cap \{0\}$
+\end{definition}
+
+\begin{definition}
+	$(K,+,*)$...Körper, $p \in \mathbb{Z}$, $x \in K$, $x \neq 0$
+	
+	$x^{p} \coloneqq x^{p}$, falls $p \in \mathbb{N}$, $1$, falls $p = 0$ und $\frac{1}{x^{-p}}$, falls $p \in -\mathbb{N}$.
+	
+	Eigenschaften von $x^{p}$: Wenn $x \in K \setminus \{0\}$, $p,q \in \mathbb{Z}$ gilt $x^{p}*x^{q}=x^{x+q}$, $(x^{p})^{q}=x^{p*q}$ und $x^{-p}=\frac{1}{x^{p}}$.
+\end{definition}
+
+\begin{lemma}
+	$(K,+,*,P)$...angeordneter Körper mit $x,y\geq 0$, $n \in \mathbb{N}$.
+	
+	$x<y \logeq x^{n} < x^{n}$ und $x,y>0: x<y \logeq x^{-n} > y^{-n}$
+\end{lemma}
+
+\subsection{Rationale Zahlen}
+\begin{definition}
+	$\sim \subseteq (\mathbb{Z}\times\mathbb{N})\times(\mathbb{Z}\times\mathbb{N})$ sei definiert durch $(p,n)\sim (\hat{p},\hat{n}) \logeq p*\hat{n}=\hat{p}*n$.
+\end{definition}
+
+\begin{lemma}
+	$\sim$ ist Äquivalenzrelation.
+\end{lemma}
+
+\begin{definition}
+	$\mathbb{Q}\coloneqq \mathbb{Z}\times \mathbb{N} / \sim = \{[(x,n)]\sim : (x,n) \in \mathbb{Z}\times\mathbb{N}\}$
+	
+	$+: (\mathbb{Z}\times\mathbb{N})\times(\mathbb{Z}\times\mathbb{N}) \rightarrow \mathbb{Z}\times\mathbb{N}$ definiert durch $(x,n)+(y,m)\coloneqq(x*m+y*n,n*m)$
+	
+	$*: (\mathbb{Z}\times\mathbb{N})\times(\mathbb{Z}\times\mathbb{N}) \rightarrow \mathbb{Z}\times\mathbb{N}$ definiert durch $(x,n)*(y,m)\coloneqq(x*y+n*m)$
+\end{definition}
+
+\begin{lemma}
+	$+$, $*$ sind kommutativ und assoziativ auf $\mathbb{Z}\times\mathbb{N}$.
+\end{lemma}
+
+\begin{definition}
+	$sgn:\mathbb{Z}\times\mathbb{N}\rightarrow\{-1,0,1\}$ definiert mit $sgn((x,n))\coloneqq sgn(x)$
+\end{definition}
+
+\begin{lemma}
+	$(x,n)\sim(\hat{x},\hat{n})$, $(y,m)\sim(\hat{y},\hat{m})$
+	
+	\begin{itemize}
+		\item $\implies sgn((x,n)) = sgn((\hat{x}, \hat{n}))$
+		\item $\implies (x,n)+(y,m)\sim(\hat{x},\hat{n})+(\hat{y},\hat{m})$
+		\item $\implies (x,n)*(y,m)\sim(\hat{x},\hat{n})*(\hat{y},\hat{m})$
+	\end{itemize}
+\end{lemma}
+
+\begin{definition}
+	$+:\mathbb{Q}\times\mathbb{Q}\rightarrow\mathbb{Q}$ definiert durch $[(x,n)]_{\sim}+[(y,m)]_{\sim}\coloneqq[(x,n)+(y,m)]_{\sim}$
+	
+	$*:\mathbb{Q}\times\mathbb{Q}\rightarrow\mathbb{Q}$ definiert durch $[(x,n)]_{\sim}*[(y,m)]_{\sim}\coloneqq[(x,n)*(y,m)]_{\sim}$
+	
+	$sgn: \mathbb{Q}\rightarrow\{-1,0,1\}$ definiert als $sgn([(x,n)]_{\sim})\coloneqq sgn((x,n))$
+\end{definition}
+
+\begin{lemma}
+	\begin{itemize}
+		\item $+$, $*$ sind assoziativ und kommutativ
+		\item Es gilt das Distributivgesetz
+		\item $[(0,1)]_{\sim}$ ist das additiv neutrale Element. Man schreibt dafür auch $0$.
+		\item $[(1,1)]_{\sim}$ ist das multiplikativ neutrale Element. Man schreibt dafür auch $1$.
+		\item $[(x,n)]_{\sim} \in \mathbb{Q} \implies [(-x,n)]_{\sim}$ ist Inverses bezgl. $+$.
+		\item $[(x,n)]_{\sim} \neq 0 \implies [(sgn(x)*n,|x|)]_{\sim}$ ist Inverses bezgl. $*$.
+		\item $P \coloneqq \{[(x,n)]_{\sim}:sgn([(x,n)]_{\sim})=1\}$
+		\item $-P \coloneqq \{[(x,n)]_{\sim}:sgn([(x,n)]_{\sim})=-1\}$
+		\item $\mathbb{Z}$ lässt sich in $\mathbb{Q}$ isomorph einbetten, d.h. $\exists$ eine injektive Funktion $\phi: \mathbb{Z}\rightarrow\mathbb{Q}$.
+		\item $\phi(\mathbb{N}) \subseteq \mathbb{Q}$ hat keine obere Schranke
+	\end{itemize}
+
+	Daher ist $(\mathbb{Q},+,*)$ ein Körper.
+\end{lemma}
+
+\begin{lemma}
+	Sei $(K,+,*,P)$ ein beliebiger angeordneter Körper.
+	
+	Dann existiert eine eindeutige Abbildung $\phi : \mathbb{Q}\rightarrow K$ die verträglich mit $+$ und $*$ ist. $\phi$ ist dabei immer injektiv und mit $<$ und $\leq$ verträglich.
+\end{lemma}
+
+\begin{schreibweise}
+	$[(x,n)]_{\sim} \in \mathbb{Q}$
+	
+	$[(x,n)]_{\sim} = \frac{\phi(x)}{\phi(n)} = \frac{x}{n}$
+\end{schreibweise}
+
+\end{document}

@@ -1,0 +1,156 @@
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Bemerkung}
+\newtheorem*{schreibweise}{Schreibweise}
+
+%opening
+\title{Zusammenfassung Heft 2 LINAG}
+\author{Ida Hönigmann}
+
+\newcommand*{\logeq}{\Leftrightarrow}
+
+\begin{document}
+
+\maketitle
+
+\section{Vektorraum}
+
+\begin{definition}
+	$m_1, m_2, ..., m_n \in V$, $x_1,...,x_n \in K$
+	
+	Dann ist $x_1*m_1+x_2*m_2+...+x_n*m_n$ eine Linearkombination des Vektors $m_1,...,m_n$
+\end{definition}
+
+\begin{remark}
+	Wenn $m_1=m_2$, dann Linearkombination über $m_1,...,m_n$ auch Linearkombination über $m_2,...,m_n$.
+\end{remark}
+
+\begin{definition}
+	$M \subseteq V$
+	
+	$[M]\coloneqq\{v\in V \exists n \geq 0 \exists x_1, ..., x_n \in K \exists m_1, ..., m_n \in M : v=\sum_{i=1}^{n}x_i*m_i\}$ heißt die Hülle von M.
+	
+	Kurz auch: $[M]=\{v \in V : v$ ist Linearkombination von Elementen aus $M\}$.
+\end{definition}
+
+\begin{remark}
+	$\emptyset \neq M \subseteq V \implies [M]$ ist Unterraum von $V$.
+\end{remark}
+
+\begin{lemma}
+	$(U_i)_{i \in I}$... Familie von Unterräumen von $V$
+	
+	Dann ist $\bigcap_{i \in I} U_i$ ein Unterraum von $V$.
+\end{lemma}
+
+\begin{lemma}
+	$[M]$ kann auch als $\cap\{U:U$ ist Unterraum von $V$, $M \in U\}$ definiert werden.
+\end{lemma}
+
+\begin{lemma}
+	$V$... Vektorraum, $M$... Menge, $U$... Unterraum, $M \subset U \subset V$
+	
+	\begin{itemize}
+		\item $M \subseteq [M] \subseteq U$
+		\item $M_1 \subseteq M_2 \subseteq V \implies [M_1]\subseteq [M_2]$
+		\item $[U]=U$
+		\item $[[M]]=[M]$
+	\end{itemize}
+\end{lemma}
+
+\begin{definition}
+	$V$... Vektorraum
+	
+	$M \subseteq V$ heißt Erzzeugnissystem von $V \logeq [M]=V$ 
+\end{definition}
+
+\begin{definition}
+	$V$... Vektorraum
+	
+	$M \subseteq V$ heißt linear abhängig $\logeq \exists a \in M : a \in [M\setminus \{a\}]$
+	
+	$M \subseteq V$ heißt linear unabhängig $\logeq \forall a \in M : a \notin [M\setminus \{a\}]$
+\end{definition}
+
+\begin{definition}
+	$V$... Vektorraum, $M \subseteq V$
+	
+	$M$ ist Basis von $V \logeq M$ ist linear unabhängig $\land M$ ist Erzzeugnissystem.
+\end{definition}
+
+\begin{lemma}
+	$V$... Vektorraum, $M \subseteq V$
+	
+	$M$ ist linear abhängig $\logeq \exists \sum_{i=1}^{n}x_i*a_i=0_V$ nicht trivial
+\end{lemma}
+
+\begin{lemma}
+	$M \subseteq V$
+	
+	$m \in [M] \logeq [M] = [M\cup\{m\}]$
+\end{lemma}
+
+\begin{theorem}
+	$V$... Vektorraum, $B \subseteq V$... Basis
+	
+	$\implies \forall x \in V\setminus\{0_V\}\exists b_1,...,b_n \in B$ verschieden, $\exists x_1,...,x_n \in K \neq 0 : x=\sum_{i=1}^{n}x_i*b_i$ mit $x_i*b_i$ eindeutig.
+\end{theorem}
+
+\begin{theorem}
+	$V$... Vektorraum, $B \subseteq V$ ... Teilmenge
+	
+	Folgende Aussagen sind äquivalent:
+	
+	\begin{itemize}
+		\item $B$ ist Basis
+		\item $B$ ist ein minimales Erzzeugnissystem
+		\item $B$ ist maximal linear unabhängig
+	\end{itemize}
+\end{theorem}
+
+\begin{theorem}
+	$A \subseteq M \subseteq V$ mit $V$... Vektorraum und $A$... linear unabhängig
+	
+	$\implies \exists Y (A \subseteq Y \subseteq M$ mit $Y$ maximal linear unabhängig $)$.
+\end{theorem}
+
+\subsection{Maximalitätsprinzip}
+
+\begin{definition}
+	$K$ ist eine Kette, wenn gilt $\forall x,y \in K : x \leq y \lor y \leq x$
+\end{definition}
+
+\begin{definition}
+	$K$ ist eine maximale Kette, wenn gilt $\forall K' \supset K : K'$ ist keine Kette
+\end{definition}
+
+\begin{theorem}
+	$(H,\leq)$... Halbordung
+	
+	$\implies \exists K \subseteq H : K$ ist eine maximale Kette.
+\end{theorem}
+
+\begin{theorem}
+	$V$... Vektorraum
+	
+	$\implies \exists B \subseteq V : B$ ist Basis
+\end{theorem}
+
+\begin{lemma}
+	Sei $A \subseteq V$ linear unabhängig $\implies \exists B \supseteq A : B$ ist Basis.
+	
+	Sei $M \subset V$ ein Erzeugungssystem $\implies \exists B \subset M : B$ ist Basis
+\end{lemma}
+
+\end{document}
