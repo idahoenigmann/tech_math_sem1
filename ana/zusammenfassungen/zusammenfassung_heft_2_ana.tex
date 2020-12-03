@@ -437,6 +437,84 @@
 
 \begin{lemma}
 	$(\mathbb{R}^p,d_{1, 2 oder \infty})$ ist vollständig metrischer Raum.
+	
+	$(\mathbb{C}^p,d_{1, 2 oder \infty})$ ist vollständig metrischer Raum.
+\end{lemma}
+
+\begin{lemma}
+	Eine komplexe Folge konvergiert, wenn ihr Realteil und Imaginärteil konvergieren.
+\end{lemma}
+
+\begin{definition}
+	$(x_n)_{n \in \mathbb{N}}$ ... Folge in $\mathbb{R}$
+	
+	$\lim\limits_{n \rightarrow \infty}x_n = +\infty \logeq \forall M > 0 \exists N \in \mathbb{N} \forall n \geq N : x_n > M$
+	
+	$\lim\limits_{n \rightarrow \infty}x_n = -\infty \logeq \forall M < 0 \exists N \in \mathbb{N} \forall n \geq N : x_n < M$
+\end{definition}
+
+\begin{remark}
+	Eine Folge kann nicht gleichzeitig gegen $x \in \mathbb{R}$ und gegen $+\infty$ oder $-\infty$ konvergieren.
+\end{remark}
+
+\begin{theorem}
+	$(x_n), (y_n)$ ... Folgen in $\mathbb{R}$, wobei $\lim\limits_{n \rightarrow \infty}x_n = +\infty$
+	
+	Dann gelten folgende Aussagen:
+	
+	\begin{itemize}
+		\item $\lim\limits_{n \rightarrow \infty}-x_n = -\infty$
+		\item $\{y_n:n\in \mathbb{N}\}$ ... nach unten beschränkt $\implies \lim\limits_{n \rightarrow \infty}(x_n+y_n)=+\infty$
+		\item $\exists C >0 \forall n \in \mathbb{N} : y_n \geq C$, dann $\lim\limits_{n\rightarrow\infty}(x_n*y_n)=+\infty$
+		\item Falls $\forall n \in \mathbb{N} : x_n \leq y_n \implies \lim\limits_{n \rightarrow \infty}+\infty$
+		\item $\forall n \in \mathbb{N} : y_n > 0 \implies \lim\limits_{n \rightarrow \infty}y_n = +\infty \logeq \lim\limits_{n \rightarrow \infty} \frac{1}{y_n}=0$
+		\item Wenn $y_n$ monoton wachsend ist, dann gilt 
+		\begin{itemize}
+			\item $\lim\limits_{n\rightarrow \infty}=sup(y_n)$, falls $\{y_n : n \in \mathbb{N}\}$ nach oben beschränkt.
+			\item $\lim\limits_{n\rightarrow\infty}+\infty$, falls $\{y_n : n \in \mathbb{N}\}$ nicht nach oben beschränkt ist.
+		\end{itemize}
+	\end{itemize}
+\end{theorem}
+
+\begin{remark}
+	Gleicher Satz gilt in gleicher Form auch für $-\infty$.
+\end{remark}
+
+\subsection{Reihen}
+
+\begin{definition}
+	$a_k$ ... Folge aus $\mathbb{R}$ oder aus $\mathbb{C}$, $n\in\mathbb{N}$
+	
+	$S_n=\sum_{j=1}^{n}a_j$ heißt die j-te Partialsumme
+	
+	$(S_n)_{n \in \mathbb{N}}$ heißt Reihe mit Summanden $a_n$.
+	
+	Falls $\lim\limits_{n\rightarrow\infty}S_n$ existiert, so heißt die Reihe konvergent.
+\end{definition}
+
+\begin{schreibweise}
+	Wenn eine Reihe konvergent ist schreiben wir für $\lim\limits_{n\rightarrow\infty}S_n=x$ auch $\sum_{k=1}^{\infty}a_k=x$.
+	
+	Für $\lim\limits_{n\rightarrow\infty}S-n=+\infty$ schreiben wir auch $\sum_{k=1}^{\infty}=+\infty$. Gleiches für $-\infty$.
+	
+	Für $(S_n)$ schreibt man auch $\sum_{k=1}^{\infty}a_k$.
+\end{schreibweise}
+
+\begin{lemma}
+	$\sum_{k=1}^{\infty}a_k$, $\sum_{k=1}^{\infty}b_k$ ... konvergente Reihen in $\mathbb{R}$ oder $\mathbb{C}$.
+	
+	Dann gilt:
+	\begin{itemize}
+		\item $\sum_{k=1}^{\infty}(a_k+b_k)$... konvergiert gegen $(\sum_{k=1}^{\infty}a_k)+(\sum_{k=1}^{\infty}b_k)$
+		\item $\sum_{k=1}^{\infty}(\lambda*a_k)=\lambda*\sum_{k=1}^{\infty}a_k$
+		\item $\sum_{k=1}^{\infty}\overline{a_k}=\overline{\sum_{k=1}^{\infty}a_k}$
+	\end{itemize}
+\end{lemma}
+
+\begin{lemma}
+	$\sum_{k=1}^{\infty}a_k$, $\sum_{k=1}^{\infty}a'_k$... Reihen, wobei $\exists l \in \mathbb{N} \forall k \geq l : a_k = a'_k$
+	
+	$\implies \sum_{k=1}^{\infty}a_k$ konvergent $\logeq \sum_{k=1}^{\infty}a'_k$ konvergiert
 \end{lemma}
 
 \end{document}
