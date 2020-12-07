@@ -286,4 +286,86 @@
 
 	Die entstandene Matrix nennt man auch Normalform.
 \end{lemma}
+
+\begin{remark}
+	$K$... Körper, $n\geq 1$, $a_1,...,a_n \in K^n$ verschieden
+	
+	$b=\sum_{i=1}^{n}x_i*a_i$ mit $x_1,...,x_m \in K$
+	
+	Sei $j$ mit $1 \leq j \leq n$, sodass $x_j \neq 0$.
+	
+	$\implies (a_1,...,a_n)$ lässt sich durch elementare Spaltenumformungen nach $(a_1,...,a_{j-1},b,a_{j+1},...,a_n)$ umformen.
+\end{remark}
+
+\begin{lemma}
+	$K$... Körper, $n\geq 1$, $a_1,...,a_n,b_1,...,b_n \in K^n$
+	
+	Falls $[\{a_1,...,a_n\}] = [\{b_1,...,b_n\}]$, dann lässt sich $(a_1,...,a_n)$ durch elementare Spaltenumformungen zu $(b_1,...,b_n)$ umformen.
+\end{lemma}
+
+\subsection{Dimenssionssatz}
+
+\begin{definition}
+	$V$... Vektorraum, $(U_i|i \in I)$... Familie von Unterräumen von V
+	
+	$\sum_{i \in I}U_i=\{\sum_{i \in I}u_i|\forall i\in I: (u_i \in U_i) u_i=0$ für fast alle $i \in I\}$
+\end{definition}
+
+\begin{remark}
+	$\bigcup_{i\in I}U_i \subseteq [\bigcup_{i\in I}U_i]=\sum_{i \in I}U_i$
+\end{remark}
+
+\begin{definition}
+	$\sum_{i \in I}U_i$ heißt direkt $\logeq \forall j \in I : U_j \cap \sum_{i \in I \setminus \{j\}}U_i = \{0\}$
+\end{definition}
+
+\begin{schreibweise}
+	Für direkte Summen schreibt man auch $\bigoplus$.
+\end{schreibweise}
+
+\begin{lemma}
+	$(U_i)_{i \in I}$... Unterraume von V
+	
+	$S\coloneqq \sum_{i \in I}U_i$ direkt $\logeq \forall s \in S \exists!$ Darstellung $s=\sum_{i \in I}u_i$ wobei $\forall i \in I(u_i \in U_i)$
+\end{lemma}
+
+\begin{definition}
+	$U$ ... Unterraum von V
+	
+	$T \subseteq V$ heißt komplementärer Unterraum zu $U \logeq V = U \bigoplus T$ also $U \cap T = \{0\}$.
+\end{definition}
+
+\begin{remark}
+	$V\setminus U$ ist kein Unterraum von $V$., da $0_V \notin V \setminus U$.
+\end{remark}
+
+\begin{theorem}
+	$\forall U$ ... Unterraum von $V$, $\exists T$ komplementär zu $U$ (im Allgemeinen nicht eindeutig).
+\end{theorem}
+
+\begin{theorem}(Dimenssionssatz)
+	$U$, $T$ ... Unterraum von $V$ mit $dim(U) < \infty \land dim(T) < \infty$
+	
+	$\implies dim(U+T)=dim(U)+dim(T)-dim(U\cap T)$
+\end{theorem}
+
+\begin{lemma}
+	$U$... Unterraum von $V$, $dim(V) < \infty$, $T$ ... Komplementärraum von $U$
+	
+	$dim(T)=dim(V)-dim(U)$
+\end{lemma}
+
+\section{Lineare Abbildungen}
+
+\begin{definition}
+	$V$, $W$... Vektorräume
+	
+	$f:V\rightarrow W$ heißt linear $\logeq$
+	
+	\begin{itemize}
+		\item $\forall x,y \in V : f(x+y)=f(x)+f(y)$
+		\item $\forall c \in K \forall x \in V : f(c*x)=c*f(x)$
+	\end{itemize}
+\end{definition}
+
 \end{document}
