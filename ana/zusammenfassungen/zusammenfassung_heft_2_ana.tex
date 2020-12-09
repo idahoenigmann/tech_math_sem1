@@ -512,9 +512,86 @@
 \end{lemma}
 
 \begin{lemma}
-	$\sum_{k=1}^{\infty}a_k$, $\sum_{k=1}^{\infty}a'_k$... Reihen, wobei $\exists l \in \mathbb{N} \forall k \geq l : a_k = a'_k$
+	\begin{itemize}
+		\item $\sum_{k=1}^{\infty}a_k$, $\sum_{k=1}^{\infty}a'_k$... Reihen, wobei $\exists l \in \mathbb{N} \forall k \geq l : a_k = a'_k$
+		
+		$\implies \sum_{k=1}^{\infty}a_k$ konvergent $\logeq \sum_{k=1}^{\infty}a'_k$ konvergiert
 	
-	$\implies \sum_{k=1}^{\infty}a_k$ konvergent $\logeq \sum_{k=1}^{\infty}a'_k$ konvergiert
+		\item $(k(j))_{j \in \mathbb{N}}$... streng monoton wachsende Folge in $\mathbb{N}$
+		
+		$\sum_{n=1}^{\infty}a_n$ konvergent $\implies \sum_{n=1}^{\infty}A_n$ konvergiert mit $A_1 = a_1+...+a_{k(1)}$, ... $A_k=a_{k(n-1)+1}+...+a_{k(n)}$
+		
+		\item $\sum_{k=1}^{\infty}a_k$, $\sum_{k=1}^{\infty}b_k$ ... konvergieren mit $a_k,b_k \in \mathbb{R}$
+		
+		\begin{itemize}
+			\item $\forall k \in \mathbb{N} : a_k \leq b_k \implies \sum_{k=1}^{\infty}a_k \leq \sum_{k=1}^{\infty}b_k$
+			\item Falls zusätzlich gilt $\exists l \in \mathbb{N} : a_l < b_l$, dann ist $\sum_{k=1}^{\infty}a_k < \sum_{k=1}^{\infty}b_k$
+		\end{itemize}
+	\end{itemize}
+	
 \end{lemma}
 
+\begin{remark}
+	Eine komplexe Reihe ist konvergent, falls die Reihe der Realteile und die Reihe der Imaginärteile konvergiert.
+\end{remark}
+
+\begin{lemma}
+	$\sum_{k=1}^{\infty}a_k$ ... konvergent $\implies \lim\limits_{n \rightarrow \infty} (a_k)_{k \in \mathbb{N}} = 0$
+\end{lemma}
+
+\begin{lemma}
+	\begin{itemize}
+		\item $\sum_{k=1}^{\infty}a_k$ ... konvergent $\logeq S_n = \sum_{k=1}^{n}a_k$ ... beschränkt
+		\item Majorantenkriterium: $\forall k \in \mathbb{N} : a_k \leq b_k$. Falls $\sum_{k=1}^{\infty}b_k$ ... konvergiert, dann gilt $\sum_{k=1}^{\infty}a_k$ ... konvergiert.
+		\item Minorantenkriterium: $\forall k \in \mathbb{N} : a_k \leq b_k$. Falls $\sum_{k=1}^{\infty}a_k = +\infty$, dann gilt $\sum_{k=1}^{\infty}b_k = +\infty$.
+	\end{itemize}
+\end{lemma}
+
+\begin{definition}
+	$\sum_{k=1}^{\infty}a_k$ heißt absolut konvergent, falls $\sum_{k=1}^{\infty}|a_k|$ ... konvergent.
+\end{definition}
+
+\begin{lemma}
+	$\sum_{k=1}^{\infty}a_k$ ... absolut konvergent $\implies \sum_{k=1}^{\infty}a_k$ ... konvergent
+\end{lemma}
+
+\begin{remark}
+	Die Umkehrung ist falsch.
+\end{remark}
+
+\subsection{Konvergenzkriterien}
+
+\begin{theorem}(Wurzelkriterium)
+	$\sum_{k=1}^{\infty}a_k$ ... Reihe aus $\mathbb{R} / \mathbb{C}$
+	
+	\begin{itemize}
+		\item Falls $\exists q \in [0,1) \exists N \in \mathbb{N} \forall n \geq N : \sqrt[n]{|a_n|}\leq q$ dann ist die Reihe absolut konvergent.
+		\item Falls $\exists$ Teilfolge $(a_{n(j)})_{j \in \mathbb{N}}$ mit $\forall j \in \mathbb{N} : \sqrt[n(j)]{|a_{n(j)|}\geq 1}$ dann ist die Reihe divergent.
+	\end{itemize}
+\end{theorem}
+
+\begin{theorem}(Quotientenkriterium)
+	$\sum_{k=1}^{\infty}a_k$ ... Reihe aus $\mathbb{R} / \mathbb{C}$
+	
+	\begin{itemize}
+		\item Falls $\exists q \in [0,1) \exists N \in \mathbb{N} \forall n \geq N : \frac{|a_{n+1}|}{|a_n|} \leq q$, dann ist die Reihe absolut konvergent.
+		\item Falls $\exists N \in \mathbb{N} \forall n \geq N : \frac{|a_{n+1}|}{|a_n|} \geq 1$, dann ist die Reihe divergent.
+	\end{itemize}
+\end{theorem}
+
+\begin{lemma}
+	$a_1,...,a_m,b_1,...,b_m \in \mathbb{R}$ oder $\mathbb{C}$
+	
+	Dann gilt $\sum_{n=1}^{m}a_nb_n=a_m*\beta_m-\sum_{n=1}^{m-1}(a_{n+1}-a_n)*\beta_n$ mit $\forall n \in \{1,...,m\}: \beta_n = \sum_{j=1}^{n}b_j$
+\end{lemma}
+
+\begin{theorem}(Dirichletsches Kriterium)
+	$(a_n)$ monotone Nullfolge aus $\mathbb{R}$, $(b_n)$ ... Folge aus $\mathbb{R}$ oder $\mathbb{C}$
+	
+	$\exists C \geq 0 \forall n \in \mathbb{N}: |\sum_{j=1}^{n}b_j|\leq C \implies \sum_{n=1}^{\infty}a_nb_n$ konvergiert
+\end{theorem}
+
+\begin{theorem}(Leibnitz-Kriterium)
+	$(a_n)$ ... monotone Nullfolge $\implies \sum_{n=1}^{\infty}(-1)^n*a_n$ konvergiert.
+\end{theorem}
 \end{document}

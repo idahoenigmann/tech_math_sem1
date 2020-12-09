@@ -368,4 +368,84 @@
 	\end{itemize}
 \end{definition}
 
+\begin{definition}
+	$V$... Vektorraum, $f$... lineare Abbildung
+	
+	$kerf \coloneqq \{v \in V : f(v) = 0\}$
+\end{definition}
+
+\begin{lemma}
+	$kerf$ ist ein Unterraum von $V$.
+	
+	$f$ injektiv $\logeq kerf=\{0\}$
+\end{lemma}
+
+\begin{schreibweise}
+	$L(V,W)$ ist die Menge aller linearer Abbildungen von $V$ zu $W$.
+\end{schreibweise}
+
+\begin{lemma}
+	$f \in L(V,W)$
+	
+	\begin{itemize}
+		\item $f(V)$ ist Unterraum von $W$
+		\item $T \leq W$ Unterraum von $W \implies f^{-1}(T)$ ist Unterraum von $V$
+		\item $\forall M \subseteq V : f([M]) = [f(M)]$
+		\item $f$ bijektiv $\implies f^{-1} \in L(W,V)$
+	\end{itemize}
+\end{lemma}
+
+\begin{lemma}
+	$f \in L(V,W)$
+	\begin{itemize}
+		\item $f$ injektiv $\logeq dim(V) = dim(f(V))$
+		\item $f$ surjektiv $dim(W)=dim(f(V))$
+	\end{itemize}
+\end{lemma}
+
+\begin{lemma}
+	$f \in L(V,W)$, $B$... Basis von $V$
+	
+	\begin{itemize}
+		\item $f$ injektiv $\logeq f|_B$ injektiv $\land f(B)$ linear unabhängig
+		\item $f$ surjektiv $\logeq f(B)$ Erzeugungssystem von $W$
+	\end{itemize}
+\end{lemma}
+
+\begin{definition}
+	$f \in L(V,W)$
+	
+	$def(f)\coloneqq dim(kerf)$ heißt der Defekt.
+	
+	$rg(f)\coloneqq dim(f(V))$ heißt der Rang.
+\end{definition}
+
+
+\begin{theorem}
+	$f \in L(V,W)$, $dim(V)<\infty$
+	
+	$rg(f)+def(f)=dim(V)$
+\end{theorem}
+
+\begin{lemma}
+	$f \in L(V,W)$, $dim(V)=dim(W)<\infty$
+	
+	$f$ injektiv $\implies f$ surjektiv
+	
+	$f$ surjektiv $\implies f$ injektiv
+\end{lemma}
+
+\section{Fortsetzungssatz}
+
+\begin{remark}
+	$f,g \in L(V,W)$, $M \subseteq V$... Erzeugungssystem
+	
+	$f=g \logeq f|_M = g|_M$
+\end{remark}
+
+\begin{theorem}
+	$V,W$... Vektorräume, $B$... Basis von $V$, $f:B\rightarrow W$... Funktion
+	
+	$\implies \exists! \hat{f}\in L(V,W)$ mit $\hat{f}|_B = f$
+\end{theorem}
 \end{document}
