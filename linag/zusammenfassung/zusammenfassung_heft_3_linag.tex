@@ -1,0 +1,249 @@
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Bemerkung}
+\newtheorem*{schreibweise}{Schreibweise}
+
+%opening
+\title{Zusammenfassung Heft 3 LINAG}
+\author{Ida Hönigmann}
+
+\newcommand*{\logeq}{\Leftrightarrow}
+
+\begin{document}
+
+\maketitle
+
+\begin{lemma}
+	Zu jeder linearen Abbildung existiert eine passende Matrix und umgekehrt.
+	
+	$A \in K^{m\times n}$ ($m$ ... Dimension des Zielraums, $n$ ... Dimension des Urraums)
+	
+	$\phi_A: K^n \rightarrow K^m$, dann ist $\phi_A \in L(K^n, K^m)$
+	
+	$f \in L(K^n, K^m) \implies \exists A'\in K^{m\times n} : f = \phi_{A'}$
+\end{lemma}
+
+\begin{remark}
+	$\Phi : K^{m\times n} \rightarrow L(K^n, K^m), A\mapsto \phi_A$ ist surjektiv, injektiv und linear
+\end{remark}
+
+\begin{definition}
+	$A \in K^{m \times n}$
+	
+	$rg(A)\coloneqq dim[\{s_1,...,s_n\}] = dim[\{\phi_A(e_1),...,\phi_A(e_n)\}] = dim \phi_A(K^n) = rg(\phi_A)$ heißt der Spaltenrang von $A$.
+	
+	$\{e_1,...,e_n\}$... Erzeugnissystem von $K^n \implies \{\phi_A(e_1), ...,\phi_A(e_n)\}$ ... Erzeugnissystem von $\phi_A(K^n)$
+	 
+\end{definition}
+
+\begin{lemma}
+	$\{b_1,...,b_n\}$... Basis von $K^n$, $d_1,...,d_n \in K^m$
+	
+	$\exists! g \in L(K^n, K^m) : \forall i : g(b_i) = d_i$
+	
+	Um die Matrix $A \in K^{m \times n}$ mit $g = \phi_A$ zu finden:
+	
+	$\begin{pmatrix}
+		b_1 & b_2 & \cdots & b_n\\
+		d_1 & d_2 & \cdots & d_n\\
+	\end{pmatrix}
+	\rightsquigarrow
+	\begin{pmatrix}
+		E_n \\
+		A \\
+	\end{pmatrix}$
+	
+\end{lemma}
+
+\begin{lemma}
+	$f\in L(K^n, K^m)$, $g\in L(K^m, K^l)$
+	
+	$\implies g \circ f$ linear
+	
+	$A$ ... Matrix der Abbildung $f$, $B$ ... Matrix der Abbildung $g$
+	
+	$\implies \phi_B \circ \phi_A = \phi_{B*A}$
+\end{lemma}
+
+\begin{remark}
+	$A \in K^{n \times m}$, $B \in K^{m \times l}$, $C \in K^{l\times j}$
+	
+	$\implies C*(B*A) = (C*B)*A$
+\end{remark}
+
+\begin{remark}
+	$(K^{n \times m},*)$ bildet eine Halbgruppe ($E_n$ ist neutrales Element, unter $*$ abgeschlossen, aber für manche Matrizen existiert kein inverses Element).
+\end{remark}
+
+\section{Koordinaten}
+\begin{definition}
+	$V$... Vektorraum, $B$... Basis von $V$, $x \in V$
+	
+	$x = \sum_{b \in B}x_b * b$
+	
+	$B* : V \rightarrow K^{<B>}, x \mapsto <B*,x> : B \rightarrow K, b \mapsto x_b$ (Isomorphismus von $V$ nach $K^{<B>}$)
+	
+	$b_0 \in B$
+	
+	$b_0* : V \rightarrow K, x \mapsto x_{b_0}$
+	
+	Dann ist $b_i$ die i-te Koordinate von $x$.
+	
+\end{definition}
+
+\begin{remark}
+	Die Reihenfolge von $B$ ist bei den Koordinaten wichtig.
+	
+	$b_0*$ hängt von $B$ ab.
+\end{remark}
+
+\begin{schreibweise}
+	$b*(x) = <b*,x> \in K$
+	
+	$B*(x) = <B*,x> \in K^{<B>}$
+\end{schreibweise}
+
+\begin{remark}
+	$b_1,b_2 \in B$, $b_1 \neq b_2$
+	
+	$b_1*(b_1)=1$ und $b_1*(b_2)=0$
+\end{remark}
+
+\begin{lemma}
+	Wenn Funktionen, wie im folgenden Diagramm gelten
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		V & W \\
+		K^{<B>} & K^{<C>} \\};
+	\path[-stealth]
+	(m-1-1) edge node [left] {$B*$} (m-2-1)
+	edge [double] node [below] {$f$} (m-1-2)
+	(m-2-1.east|-m-2-2) edge [dashed,-] node [below] {$f'$}
+	(m-2-2)
+	(m-1-2) edge node [right] {$C*$} (m-2-2);
+\end{tikzpicture}
+
+	dann gilt $\exists f'$ ... linear (also $\exists$ Matrix die $f'$ beschreibt).
+\end{lemma}
+
+\begin{remark}
+	$f = (C*)^{-1}\circ f' \circ B*$
+\end{remark}
+
+\begin{schreibweise}
+	Die Matrix die $f'$ beschreibt wird auch $<C*,f(B)>$ gennant.
+\end{schreibweise}
+
+\begin{remark}
+	$f \in L(V,W)$, $B$... Basis von $V$, $C$... Basis von $W$
+	
+	$rg(<C*,f(B)>)=rg(f)$
+\end{remark}
+
+\begin{remark}
+	$<D*,id(B)>$ wandelt zwischen Koordinatendarstellungen um.
+\end{remark}
+
+\section{Lineare Selbstabbildungen}
+\begin{lemma}
+	$(\{f:f\in L(V,V) | f$ ... bijektiv$, \circ\})$ bildet eine Gruppe.
+\end{lemma}
+
+\begin{schreibweise}
+	Für die Menge aller bijektiven Funktionen aus $L(V,V)$ schreibt man $GL(V)$.
+\end{schreibweise}
+
+\begin{definition}
+	$A \in K^{n\times n}$ heißt regulär $\logeq \exists B \in K^{n \times n} : B * A = E_n$
+\end{definition}
+
+\begin{theorem}
+	$A \in K^{n \times n}$ regulär $\logeq \phi_a : K^n \rightarrow K^n$ bijektiv
+	
+	$(\{A \in K^{n \times n} | A $ regulär$\}, *)$ bildet eine Gruppe $\cong GL(V)$
+\end{theorem}
+
+\begin{definition}
+	Wenn $A$ eine Matrix ist, dann heißt $A^{-1}$ die inverse Matrix, wenn gilt $A*A^{-1} = A^{-1} * A = E_n$
+\end{definition}
+
+\begin{lemma}
+	Um von $A$ zu $A^{-1}$ zu kommen:
+	
+	$\begin{pmatrix}
+		E_n \\
+		A \\
+	\end{pmatrix}
+	\rightsquigarrow
+	\begin{pmatrix}
+		A^{-1} \\
+		E_n \\
+	\end{pmatrix}$
+\end{lemma}
+
+\begin{remark}
+	$(GL_n(K),*)$ ist eine nicht kommutative Gruppe $\forall n \geq 2$.
+\end{remark}
+
+\section{Vektorräume linearer Abbildungen}
+
+\begin{lemma}
+	$V$, $W$ ... Vektorräume
+	
+	$W^V\coloneqq \{f : V \rightarrow W\}$ ist ein Vektorraum über $K$
+	
+	$L(V,W)$ ist ein Unterraum von $W^V$.
+\end{lemma}
+
+\begin{lemma}
+	$V$, $W$ ... Vektorraum, $B=\{b_1,...,b_n\}$ ... Basis von $V$, $C=\{c_1,...,c_m\}$
+	
+	$\Phi : L(V,W)\rightarrow K^{m\times n}, f \mapsto <C*,f(B)>$
+	
+	$\Phi$ ist ein Isomorphismus.
+	
+	Insbesondere ist $dim(L(V,W)) = dim(K^{m \times n})$
+\end{lemma}
+
+\begin{definition}
+	$c*A=\begin{pmatrix}
+		c*a_{11} & \cdots & c*a_{1n} \\
+		\vdots &  & \vdots \\
+		c*a_{m1} & \cdots & c*a_{mn} \\
+	\end{pmatrix}$
+\end{definition}
+
+\begin{remark}
+	
+	Für lineare Abbildungen $f$, $g$ und $h$ gilt:
+	
+	$g \circ (c*f) = c*(g \circ f) = (c*g) \circ f$
+	
+	$(g+h)\circ f = (g \circ f) + (h \circ f)$
+	
+	$g \circ (f+h) = (g \circ f) + (g \circ h)$
+	
+	Für die dazugehörigen Matrizen $A$, $B$ und $C$ gilt:
+	
+	$B*(c*A) = c*(B*A) = (c*B) * A$
+	
+	$(B+C)*A = (B*A)+(C*A)$
+	
+	$A*(B+C) = (A*B) + (A*C)$
+\end{remark}
+
+\end{document}
