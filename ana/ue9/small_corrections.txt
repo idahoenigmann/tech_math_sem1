@@ -1,0 +1,5 @@
+3. 0 ist Häufungspunkt, da es eine Folge aus M gibt, die gegen 0 konvergiert.
+
+4. Die Menge besteht nur aus isolierten Punkten, da jeder Wert die Form a + ib mit a,b aus den natürlichen Zahlen hat.
+
+

@@ -1,0 +1,54 @@
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{centernot}
+
+\newtheorem{theorem}{Satz}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Bemerkung}
+\newtheorem*{schreibweise}{Schreibweise}
+
+%opening
+\title{Zusammenfassung Heft 3 ANA}
+\author{Ida Hönigmann}
+
+\newcommand*{\logeq}{\Leftrightarrow}
+
+\begin{document}
+	
+\maketitle
+
+\section{Metrische Räume}
+
+\begin{definition}
+	$<M,d>$ ... metrischer Raum, $\epsilon \in \mathbb{R}$, $\epsilon > 0$, $x \in M$
+	
+	$U_\epsilon(x)\coloneqq \{y \in M : d(x,y) < \epsilon\}$ heißt die offene $\epsilon$-Kugel um $x$.
+
+	$U_\epsilon(x)\coloneqq \{y \in M : d(x,y) \leq \epsilon\}$ heißt die abgeschlossene $\epsilon$-Kugel um $x$.
+
+\end{definition}
+
+\begin{remark}
+	$(x_n)_{n \in \mathbb{N}}$ ... Folge in $M$, $x \in M$
+	
+	$\lim\limits_{n\rightarrow \infty}x_n = x \logeq \forall \epsilon > 0 \exists N \in \mathbb{N} \{x_n:n\geq N\} \subseteq U_\epsilon(x)$
+\end{remark}
+
+\begin{lemma}
+	$<M,d>$... metrischer Raum
+	
+	\begin{itemize}
+		\item $n \in \mathbb{N}$, $O_1,...,O_n \subseteq M$ ... offen $ \implies \bigcap_{j=1}^{n}O_j$ ... offen
+		\item $O_i$, $i \in I$ ... offene Teilmengen von $M \implies \bigcup_{i \in I}O_i$ ... offen
+	\end{itemize}
+\end{lemma}
+
+\end{document}
