@@ -42,6 +42,12 @@
 	$\lim\limits_{n\rightarrow \infty}x_n = x \logeq \forall \epsilon > 0 \exists N \in \mathbb{N} \{x_n:n\geq N\} \subseteq U_\epsilon(x)$
 \end{remark}
 
+\begin{definition}
+	$<M,d>$... metrischer Raum
+	
+	$O(\subseteq M)$ heißt offen, falls $\forall x \in O \exists \epsilon > 0: U_{\epsilon}(x)\subseteq O$
+\end{definition}
+
 \begin{lemma}
 	$<M,d>$... metrischer Raum
 	
@@ -50,5 +56,140 @@
 		\item $O_i$, $i \in I$ ... offene Teilmengen von $M \implies \bigcup_{i \in I}O_i$ ... offen
 	\end{itemize}
 \end{lemma}
+
+\begin{definition}
+	$<M,d>$ ... metrischer Raum, $E \subseteq M$
+	
+	\begin{itemize}
+		\item $x \in M$ heißt Häufungspunkt von $E$, falls $\forall \epsilon > 0: (E\setminus \{x\})\cap U_{\epsilon}(x)\neq \emptyset$
+		\item $x \in E$ heißt isolierter Punkt von $E$, falls $\exists \epsilon > 0 : E \cap U_{\epsilon}(x)=\{x\}$
+		\item $E$ heißt abgeschlossen, falls alle Häufungspunkte von $E$ in $E$ enthalten sind.
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	$E\subseteq M$, $x \in M$, dann trifft genau eine der folgenden Aussagen zu:
+	
+	\begin{itemize}
+		\item $x \in E$ und ist isolierter Punkt
+		\item $x \in E$ und ist Häufungspunkt
+		\item $x \notin E$ und $x$ ist Häufungspunkt von $E$
+		\item $x \notin E$ und ist kein Häufungspunkt von $E$
+	\end{itemize}
+\end{remark}
+
+\begin{definition}
+	$E\subseteq M$
+	
+	$c(E)$ heißt Abschluss von $E$, wenn $c(E)=\{x \in M : (x \in E) \lor (x \notin E \land x$ ist Häufungspunkt von  $E)\}$.
+\end{definition}
+
+\begin{lemma}
+	Eigenschaften von $c(E)$:
+	
+	\begin{itemize}
+		\item $E \subseteq c(E)$
+		\item $c(E) = E \cup HP(E)$
+		\item $E = c(E) \logeq E$ ist abgeschlossen
+		\item $E \subseteq F \implies c(E)\subseteq c(F)$
+		\item $x \in c(E)\logeq \forall \epsilon > 0 \exists y \in E : d(x,y)<\epsilon \logeq \forall \epsilon > 0 : E \cap U_{\epsilon}(x)\neq \emptyset$
+		\item $c(c(E))=c(E)$
+		\item $x \in HP(E) \forall \epsilon > 0 : (e\setminus\{x\})\cap U_{\epsilon}(x)$ hat $\infty$ viele Punkte.
+	\end{itemize}
+\end{lemma}
+
+\begin{remark}
+	$E\subseteq M$, $|E|<\infty \implies HP(E)=\emptyset$
+\end{remark}
+
+\begin{lemma}
+	$E \subseteq M$, $<M,d>$... metrischer Raum, $x \in M$
+	
+	\begin{itemize}
+		\item $x \in HP(E)\logeq \exists$ Folge $(x_n)_{n \in \mathbb{N}}$ aus $E\setminus\{x\}$ mit $\lim\limits_{n\rightarrow\infty}=x$
+		\item $x \in c(E)\logeq \exists$ Folge $(x_n)_{n \in \mathbb{N}}$ aus $E$ mit $\lim\limits_{n\rightarrow\infty}=x$
+	\end{itemize}
+\end{lemma}
+
+\begin{lemma}
+	$<M,d>$ ... metrischer Raum, $A \subseteq M$
+	
+	Dann sind folgende Aussagen äquivalent:
+	
+	\begin{itemize}
+		\item $A$ ist abgeschlossen
+		\item Falls $(x_n)$ .. Folge aus $A$ mit Grenzwert in $M$, so liegt der Grenzwert in $A$.
+		\item $A^C$ ... Komplement von $A$ ist offen
+	\end{itemize}
+\end{lemma}
+
+\begin{lemma}
+	$<M,d>$ ... metrischer Raum
+	
+	\begin{itemize}
+		\item $A_1, ... A_n$ ... abgeschlossene Teilmengen von $M \implies \bigcup_{j=1}^{n}A_j$ abgeschlossen
+		\item $A_i, i \in I$ ... abgeschlossene Teilmengen von $M \implies \bigcap_{i\in I}$ abgeschlossen
+	\end{itemize}
+\end{lemma}
+
+\begin{definition}
+	$\lim\limits_{n\rightarrow\infty}x_n = x \implies x$ ist einziger Häufungspunkt von $(x_n)$.
+	
+	$(x_{j(n)})$ Teilfolge von $(x_n) \implies HP((x_j))\subseteq HP((x_n))$
+\end{definition}
+
+\begin{lemma}
+	$(x_n)$ ... Folge in $\mathbb{R}$, beschränkt
+	
+	\begin{itemize}
+		\item $\lim\limits_{n\rightarrow \infty}inf(x_n)$ ist kleinster Häufungspunkt von $(x_n)$.
+		\item $\lim\limits_{n\rightarrow \infty}sup(x_n)$ ist größter Häufungspunkt von $(x_n)$.
+		\item $(x_n)$ hat mindestens einen Häufungspunkt in $\mathbb{R}$.
+		\item $(x_n)$ ist konvergent $\logeq (x_n)$ hat genau einen Häufungspunkt.
+	\end{itemize}
+\end{lemma}
+
+\begin{theorem}
+	Satz von Bolzano-Weierstraß:
+	
+	$(x_n)$ ... beschränkte Folge in $\mathbb{R}^p$
+	
+	$\implies (x_n)$ hat einen Häufungspunkt in $\mathbb{R}^p$
+\end{theorem}
+
+\begin{definition}
+	$K \subset M$ heißt kompakt, falls $\forall (x_n)$ in $K : (x_n)$ hat einen Häufungspunkt in $K$.
+\end{definition}
+
+\begin{lemma}
+	$K \subseteq M$ ... kompakt. Dann gelten folgende Aussagen:
+	\begin{itemize}
+		\item $K$ ist abgeschlossen
+		\item $F \subseteq M$ ist abgeschlossen $\land F \subseteq K \implies F$ ist kompakt.
+		\item $K$ ist beschränkt.
+	\end{itemize}
+\end{lemma}
+
+\begin{remark}
+	$K \subset \mathbb{R}^p$ ist kompakt $\logeq K$ ist abgeschlossen und beschränkt.
+\end{remark}
+
+\begin{lemma}
+	$M$... metrischer Raum, $(x_n)$ ... Folge in $M$, $x \in M$
+	\begin{itemize}
+		\item $\lim\limits_{n \rightarrow\infty}x_n = x \logeq \forall$ Teilfolge $(x_j) : x$ ist Häufungspunkt von $x_j$
+		\item $\{x_n : n \in \mathbb{N}\}\subseteq K$, $K$ ... kompakt. Dann ist $\lim\limits_{n \rightarrow\infty}x_n=x \logeq x$ ist einziger Häufungspunkt von $(x_n)$.
+	\end{itemize}
+\end{lemma}
+
+\subsection{Gerichtete Mengen und Netze}
+\begin{definition}
+	$(I, \leq)$ heißt gerichtete Menge, falls $I \neq \emptyset$ und falls folgende Eigenschaften gelten:
+	\begin{itemize}
+		\item $\leq$ ist reflexiv
+		\item $\leq$ ist transitiv
+		\item $\leq$ ist gerichtet ....
+	\end{itemize}
+\end{definition}
 
 \end{document}
